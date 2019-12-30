@@ -4,7 +4,7 @@
 <section class="m-4">
    <div class="container">
       <div class="filter">
-        <center>
+         <center>
             <ul id="filters">
             <a href="#" data-filter="*" class="current cat-btn outline-primary">ALL</a>
             <?php foreach ($categories as $category): ?>
@@ -15,18 +15,22 @@
              
             <?php endforeach; ?>
             </ul>
+          </center>
         </div>
 
     
-        <!-- <div id="sorts" class="button-group">  
-            <button class="cat-btn is-checked" data-sort-by="original-order">Original order</button>
-            <button class="cat-btn" data-sort-by="title">Title</button>
-            <button class="cat-btn" data-sort-by="date">Date</button>
-            <button class="cat-btn" data-sort-by="category">Category</button>
+        <div id="sorts" class="button-group">  
+             <center>
+                <button class="cat-btn is-checked" data-sort-by="original-order">Original</button>
+                <button class="cat-btn" data-sort-by="price">Price</button>
+                <button class="cat-btn" data-sort-by="date">Date</button>
+                <button class="cat-btn" data-sort-by="discount">discount</button>
+                <button class="cat-btn" data-sort-by="category">Category</button>
+            </center>
         </div>
 
-      -->
-        <div class="items">
+     
+        <div class="items mt-4">
               <?php foreach ($products as $product): ?>
                     <div class="item <?php echo $product['cat_class']; ?>" data-category="<?php echo $product['cat_class']; ?>">
                         <div class="item-image">
@@ -35,13 +39,28 @@
                         <div class="item-description">
                             <p><?php echo ucfirst($product['product_description']); ?></p>
                             <?php if($product['discount'] != 0): ?>
-                                <span class="price">Rs. <strike> <?php echo($product['product_price']); ?></strike></span>
+                                <span class="price">Rs. <del> <?php echo($product['product_price']); ?></del></span>
                                 <small class='gray-text'>-<?php echo $product['discount']; ?>% </small>
                                 <span class="price"><?php echo($product['product_price'] - $product['product_price']* ($product['discount']/100)); ?></span>
                             <?php else: ?>
                                 <span class="price">Rs. <?php echo($product['product_price']); ?></span>
                             <?php endif; ?>
                         </div>
+                        <div class="icons">
+                            <a href="<?php echo base_url().$product['product_image']; ?>" title="View Product" class="buy_button" data-fancybox data-caption="<?php echo ucfirst($product['product_description']); ?>">
+                                <i class="fas fa-eye"></i>
+                            </a>
+
+                            <a href="" target="_blank" class="cart_button">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+						</div>
+                        <div class="d-none">
+                            <p class="price"><?php echo $product['product_price']; ?></p>
+                            <p class="date"><?php echo $product['created_at']; ?></p>
+                            <p class="discount"><?php echo $product['discount']; ?></p>
+                        </div>
+                        <div class="overlay"></div>
                     </div>
                 <?php endforeach; ?>
          </div>

@@ -35,7 +35,7 @@
 
 
             <!-- Show products here -->
-			<div class="items">
+			<div class="items mt-4">
               <?php foreach ($products as $product): ?>
                     <div class="item <?php echo $product['cat_class']; ?>" data-category="<?php echo $product['cat_class']; ?>">
                         <div class="item-image">
@@ -44,7 +44,7 @@
                         <div class="item-description">
                             <p><?php echo ucfirst($product['product_description']); ?></p>
                             <?php if($product['discount'] != 0): ?>
-                                <span class="price">Rs. <strike> <?php echo($product['product_price']); ?></strike></span>
+                                <span class="price">Rs. <del> <?php echo($product['product_price']); ?></del></span>
                                 <small class='gray-text'>-<?php echo $product['discount']; ?>% </small>
                                 <span class="price"><?php echo($product['product_price'] - $product['product_price']* ($product['discount']/100)); ?></span>
                             <?php else: ?>

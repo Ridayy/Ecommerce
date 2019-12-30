@@ -11,9 +11,8 @@ $(window).on("load", function() {
 
 $(document).ready(function() {
 
-	$(".item").click(function(){
-		console.log('clicked');
-	})
+
+	$("[data-fancybox]").fancybox();
 
 	$(".items").isotope({
 		filter: '*',
@@ -23,8 +22,9 @@ $(document).ready(function() {
 			queue: false
 		},
 		getSortData: {
-        title: '.title',
-        date: '.date',
+        price: '.price',
+		date: '.date',
+		discount: '.discount',
         category: '[data-category]',
        }
 	});
