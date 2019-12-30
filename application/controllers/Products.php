@@ -1,8 +1,13 @@
 <?php 
 
 class Products extends CI_Controller {
+    public function __construct(){
+        parent::__construct();
+        $this->load->model('product');
+    }
     public function show($id){
-        echo 'shown';
+
+        $this->load->view('products/show', $data);
     }
 }
 
