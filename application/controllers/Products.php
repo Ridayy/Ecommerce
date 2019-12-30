@@ -6,7 +6,9 @@ class Products extends CI_Controller {
         $this->load->model('product');
     }
     public function show($id){
-
+        $data = [
+            'product' => $this->product->get_product($id)
+        ];
         $this->load->view('products/show', $data);
     }
 }

@@ -5,7 +5,11 @@
         }
 
         public function get_product($id){
-            return $this->db->get_where('products', array('id' => $id))->row_array();
+            $this->db->select('*');
+            $this->db->from('products as p');
+            $this->db->join('categories as c', 'p.product_cat = c.cat_id AND id='.$id);
+
+            return $this->db->get()->row_array();
         }
         public function get_products(){
             $this->db->select('*');
