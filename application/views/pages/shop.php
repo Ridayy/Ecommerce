@@ -24,7 +24,7 @@
                 <button class="cat-btn is-checked" data-sort-by="original-order">Original</button>
                 <button class="cat-btn" data-sort-by="price">Price</button>
                 <button class="cat-btn" data-sort-by="date">Date</button>
-                <button class="cat-btn" data-sort-by="discount">discount</button>
+                <button class="cat-btn" data-sort-by="discount">Discount</button>
                 <button class="cat-btn" data-sort-by="category">Category</button>
             </center>
         </div>

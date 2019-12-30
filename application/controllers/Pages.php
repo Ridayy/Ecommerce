@@ -25,6 +25,10 @@ class Pages extends CI_Controller{
         
         $this->load->view('pages/shop', $data);
     }
+
+    public function contact(){
+        $this->load->view('pages/contact');
+    }
 }
 
 ?>
