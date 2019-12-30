@@ -9,8 +9,8 @@
         }
         public function get_products(){
             $this->db->select('*');
-            $this->db->from('products');
-            $this->db->join('categories', 'products.product_cat = categories.id');
+            $this->db->from('products as p');
+            $this->db->join('categories as c', 'p.product_cat = c.cat_id');
 
            return $this->db->get()->result_array();
  

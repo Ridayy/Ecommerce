@@ -51,7 +51,7 @@
                                 <i class="fas fa-eye"></i>
                             </a>
 
-                            <a href="" target="_blank" class="cart_button">
+                            <a href="<?php echo base_url().'products/show/'.$product['id'] ?>" target="_blank" class="cart_button">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
 						</div>
