@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2019 at 01:44 PM
+-- Generation Time: Dec 30, 2019 at 03:53 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -29,17 +29,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
+  `cat_id` int(11) NOT NULL,
   `cat_name` varchar(255) NOT NULL,
   `cat_class` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+  `uploaded_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `cat_name`, `cat_class`, `created_at`) VALUES
+INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_class`, `uploaded_at`) VALUES
 (1, 'Health & beauty', 'health_and_beauty', '2019-12-30 11:05:21'),
 (2, 'Watches, Bag & Jewellery', 'watches_bag_jewellery', '2019-12-30 11:05:21'),
 (3, 'Women\'s fashion', 'women_fashion', '2019-12-30 11:51:20'),
@@ -106,7 +106,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`cat_id`);
 
 --
 -- Indexes for table `products`
@@ -128,7 +128,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`

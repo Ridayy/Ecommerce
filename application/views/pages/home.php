@@ -28,7 +28,7 @@
     <?php require APPPATH.'views/inc/navbar.php' ; ?>
 
     <section>
-        <div class="container p-1">
+        <div class="container p-4">
             <p class="lead text-center">New artists, new designs, new body styles. It’s all right here! </p>
             <div class="bottom-line"></div>
             
@@ -51,10 +51,27 @@
                                 <span class="price">Rs. <?php echo($product['product_price']); ?></span>
                             <?php endif; ?>
                         </div>
+                        <div class="icons">
+                            <a href="<?php echo base_url().$product['product_image']; ?>" title="View Product" class="buy_button" data-fancybox data-caption="<?php echo ucfirst($product['product_description']); ?>">
+                                <i class="fas fa-eye"></i>
+                            </a>
+
+                            <a href="<?php echo base_url().'products/show/'.$product['id'] ?>" target="_blank" class="cart_button">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+						</div>
+                        <div class="d-none">
+                            <p class="price"><?php echo $product['product_price']; ?></p>
+                            <p class="date"><?php echo $product['created_at']; ?></p>
+                            <p class="discount"><?php echo $product['discount']; ?></p>
+                        </div>
+                        <div class="overlay"></div>
                     </div>
                 <?php endforeach; ?>
          </div>
-
+			<center>
+				<a href="<?php echo base_url().'pages/shop'; ?>" class="cat-btn">View More</a>
+			</center>
         </div>
     </section>
   

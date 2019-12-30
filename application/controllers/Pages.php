@@ -11,7 +11,7 @@ class Pages extends CI_Controller{
     public function index(){
         $data = [
             'categories' => $this->category->get_categories(),
-            'products' => $this->product->get_products()
+            'products' => $this->product->get_recent_products()
         ];
 
         $this->load->view('pages/home', $data);

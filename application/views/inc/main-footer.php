@@ -12,7 +12,7 @@
         <a href="http://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
       </div>
       <div>
-        <h3>JOIN THE MOUNTAIN TRIBE</h3>
+        <h4>JOIN THE MOUNTAIN TRIBE</h4>
         <p>Get the latest updates and promotions</p>
         <form>
           <input type="email" placeholder="Enter Email...">
@@ -20,7 +20,7 @@
         </form>
       </div>
       <div>
-        <h3>SHOP</h3>
+        <h4>SHOP</h4>
         <ul class="list">
           <li><a href="#">Men</a></li>
           <li><a href="#">Women</a></li>
@@ -29,7 +29,7 @@
         </ul>
       </div>
       <div>
-        <h2>CREATE ACCOUNT</h2>
+        <h4> <span class="text-primary">CREATE</span> ACCOUNT</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, nesciunt!</p>
         <a href="#" class="btn btn-secondary">Join Now</a>
       </div>

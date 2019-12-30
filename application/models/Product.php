@@ -16,6 +16,18 @@
  
         }
 
+
+        public function get_recent_products(){
+            $this->db->select('*');
+            $this->db->from('products as p');
+            $this->db->join('categories as c', 'p.product_cat = c.cat_id');
+            $this->db->order_by('id', 'desc');
+            $this->db->limit(8);
+
+           return $this->db->get()->result_array();
+ 
+        }
+
         public function edit_product($id, $data){
             $this->db->where('id', $id);
             $this->db->update('products', $data);
