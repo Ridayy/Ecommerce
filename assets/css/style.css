@@ -442,6 +442,16 @@
   height: 350px;
 }
 
+
+.contact_area h5 {
+  font-weight: bold;
+  color: #93cb52;
+}
+
+.contact_area textarea {
+  height: 76px !important;
+}
+
 #main-footer {
     background: #333;
     color: #fff;
@@ -450,6 +460,47 @@
   /* #main-footer img {
     width: 150px;
   } */
+
+/* Admin css */
+
+#page-wrapper {
+  background-color: #F1F1F1 !important;
+}
+
+
+
+/* .product_image {
+
+width: 200px !important;
+height: 100px !important;
+
+
+} */
+
+#admin_sidebar .form-group {
+
+background-color: #fff;
+padding: 8px;
+
+}
+
+#admin_sidebar .form-group hr {
+
+margin-top: 10px;
+margin-bottom: 10px;
+
+
+}
+
+#admin_sidebar .btn{
+
+width: 49%;
+
+}
+
+
+
+
   
   #main-footer a {
     color: #fff;

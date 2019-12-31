@@ -14,6 +14,7 @@ $(document).ready(function() {
 	// $('.view_button').click(function(e){
 	// 	e.stopPropagation();
 	// });
+	  
 
 	$("[data-fancybox]").fancybox();
 

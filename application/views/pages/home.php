@@ -75,7 +75,7 @@
         </div>
     </section>
   
-    <script src="<?php echo base_url().'/assets/js/home.js'?>"></script>
+    <script src="<?php echo base_url().'assets/js/home.js'?>"></script>
     
     <?php require APPPATH . 'views/inc/main-footer.php'; ?>
     <?php require APPPATH.'views/inc/footer.php' ; ?>
