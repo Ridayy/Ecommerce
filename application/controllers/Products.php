@@ -11,6 +11,7 @@ class Products extends CI_Controller {
         ];
         $this->load->view('products/show', $data);
     }
+
 }
 
 ?>

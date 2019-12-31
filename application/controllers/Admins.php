@@ -8,20 +8,26 @@ class Admins extends CI_Controller {
 
     public function index(){
 
-        $this->form_validation->set_rules("email", "Email", "trim|required");
-        $this->form_validation->set_rules('password', 'Password', 'required');
-
-        if($this->form_validation->run() == TRUE){
-            if($this->admin->check_admin($_POST['email'], md5($_POST['password'])) == ''){
-                $this->session->set_flashdata('failure', 'Invalid Credentials');
-                redirect(base_url().'admins/index');
-            }else {
-                $_SESSION['admin'] = true;
-                redirect(base_url().'admins/dashboard');
-            }
+        if(isset( $_SESSION['admin'])){
+            $this->load->view('admins/dashboard');
         }else {
-            $this->load->view('admins/index');
+            $this->form_validation->set_rules("email", "Email", "trim|required");
+            $this->form_validation->set_rules('password', 'Password', 'required');
+
+            if($this->form_validation->run() == TRUE){
+                if($this->admin->check_admin($_POST['email'], md5($_POST['password'])) == ''){
+                    $this->session->set_flashdata('failure', 'Invalid Credentials');
+                    redirect(base_url().'admins/index');
+                }else {
+                    $_SESSION['admin'] = true;
+                    redirect(base_url().'admins/dashboard');
+                }
+            }else {
+                $this->load->view('admins/index');
+            }
         }
+
+        
     }
 
     public function dashboard() {

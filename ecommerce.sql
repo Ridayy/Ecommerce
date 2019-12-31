@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2019 at 07:52 PM
+-- Generation Time: Dec 31, 2019 at 08:11 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecommerce`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `email`, `password`) VALUES
+(1, 'ridaarif20@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -68,7 +87,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_description`, `product_cat`, `product_price`, `product_image`, `brand`, `discount`, `quantity`, `created_at`) VALUES
-(1, 'Double Button Cardigan', 3, 900, 'assets/img/products/dress.jpg', 'Khaadi', 0, 2, '2019-12-30 12:04:03'),
+(1, 'Double Button Cardigan', 3, 900, 'assets/img/products/dress.jpg', 'Khaadi', 0, 4, '2019-12-30 12:04:03'),
 (2, 'Makeup Mystery Box', 1, 780, 'assets/img/products/makeup.jpg', 'Rivaj', 0, 3, '2019-12-30 12:04:03'),
 (3, 'STUNNING BLACK & SILKY', 1, 560, 'assets/img/products/shampoo.jpg', 'Sunsilk', 10, 2, '2019-12-30 12:06:23'),
 (4, 'Doll Evening Dress', 3, 2789, 'assets/img/products/dress2.jpg', 'Black', 20, 1, '2019-12-30 12:29:14'),
@@ -103,6 +122,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -123,6 +148,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`

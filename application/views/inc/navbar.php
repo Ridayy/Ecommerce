@@ -10,7 +10,7 @@
             <li><a href="<?php echo base_url(); ?>pages/new">New</a></li>
             <li><a href="<?php echo base_url(); ?>pages/faqs">FAQS</a></li>
             <?php if(isset($_SESSION['user_id'])): ?>
-                <li><a href="#">Checkout</a></li>
+                <li><a href="<?php echo base_url(); ?>pages/checkout">Checkout</a></li>
             <?php endif; ?>
         </ul>
 

@@ -17,7 +17,7 @@ class Auth extends CI_Controller {
                 redirect(base_url().'auth/login');
             }else {
                 $_SESSION['user_id'] = $this->user->get_userid($_POST['email']);
-                redirect(base_url().'products/index');
+                redirect(base_url().'pages/shop');
             }
         }else {
             $this->load->view('auth/login');

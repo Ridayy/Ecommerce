@@ -55,7 +55,7 @@
                             </a>
                             <!-- Inner one -->
 
-                            <a href="<?php echo base_url().'products/add_to_cart/'.$product['id'] ?>" target="_blank" class="cart_button">
+                            <a href="<?php echo base_url().'cart/add/'.$product['id'] ?>" target="_blank" class="cart_button">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
 						</div>

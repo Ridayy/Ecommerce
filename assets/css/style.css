@@ -14,7 +14,7 @@
   }
   
   a {
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
   p {
@@ -28,6 +28,7 @@
     display: inline-block;
     margin: 0 4px;
   }
+
 
   .bottom-line {
       background: #93cb52;
@@ -113,13 +114,17 @@
     transition: all 0.2s ease;
   }
 
-  .cat-btn:hover {
+  .cat-btn:hover:not([disabled]) {
     background: #93cb52 !important;
     color: #fff;
   }
   
-  .btn:hover {
+  .btn:hover:not([disabled]) {
     background: #7b8174 !important;
+  }
+
+  .btn[disabled] {
+    color: #fff !important;
   }
   
   .btn-dark {
@@ -452,6 +457,33 @@
   height: 76px !important;
 }
 
+
+
+.checkout_section h3 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.cart_products a  {
+  display: inline-block;
+  margin-right: 4.5px;
+}
+
+.cart_products a i:hover {
+  color: #ccc !important;
+}
+.cart_products a .fa-plus{
+  color: #93cb52;
+}
+
+.cart_products a .fa-trash{
+  color:#eb4d4b;
+}
+
+.cart_products a .fa-minus {
+  color: #ffbe76;
+}
+
 #main-footer {
     background: #333;
     color: #fff;
@@ -461,46 +493,10 @@
     width: 150px;
   } */
 
-/* Admin css */
-
-#page-wrapper {
-  background-color: #F1F1F1 !important;
-}
 
 
 
-/* .product_image {
-
-width: 200px !important;
-height: 100px !important;
-
-
-} */
-
-#admin_sidebar .form-group {
-
-background-color: #fff;
-padding: 8px;
-
-}
-
-#admin_sidebar .form-group hr {
-
-margin-top: 10px;
-margin-bottom: 10px;
-
-
-}
-
-#admin_sidebar .btn{
-
-width: 49%;
-
-}
-
-
-
-
+  
   
   #main-footer a {
     color: #fff;

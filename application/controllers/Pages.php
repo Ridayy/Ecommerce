@@ -58,6 +58,18 @@ class Pages extends CI_Controller{
         }
     }
 
+    public function checkout(){
+        if(!isset($_SESSION['user_id'])){
+            redirect(base_url().'pages/shop');
+        }else {
+            $this->load->view('pages/checkout');
+        }
+    }
+
+    public function destroy(){
+        session_destroy();
+    }
+
     private function sendMessage($mail){
         $to = "ridaarif20@gmail.com";
         $from_name = $mail['name'];
