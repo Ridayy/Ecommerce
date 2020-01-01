@@ -24,7 +24,7 @@
                     <a href="<?php echo base_url(); ?>pages/checkout">
                         <i class="fas fa-shopping-cart"></i>
                         <span>
-                        <?php echo (isset($_SESSION['products']) && !empty($_SESSION['products'])) ? count($_SESSION['products']) : '0' ?>
+                        <?php echo (isset($_SESSION['total_quantity']) && !empty($_SESSION['total_quantity'])) ? array_sum($_SESSION['total_quantity']) : '0' ?>
                         </span>
                     </a>
                 </li>

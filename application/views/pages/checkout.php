@@ -75,7 +75,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">Items: </th>
-                        <td><?php echo (isset($_SESSION['products']) && !empty($_SESSION['products'])) ? count($_SESSION['products']) : 0 ?> </td>
+                        <td><?php echo (isset($_SESSION['total_quantity']) && !empty($_SESSION['total_quantity'])) ? array_sum($_SESSION['total_quantity']) : 0 ?> </td>
                     </tr>
                     <tr>
                         <th scope="row">Shipping and Handling</th>

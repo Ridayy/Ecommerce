@@ -38,6 +38,7 @@ class Cart extends CI_Controller {
             if($_SESSION['product_'. $id] == 0){
                 $this->delete($id);
             }else {
+                $this->cart_items();
                 $this->session->set_flashdata('checkout_msg', "quantity reduced");
             }
             
@@ -58,10 +59,12 @@ class Cart extends CI_Controller {
 
     private function cart_items(){
         $_SESSION['items'] = array();
+        $_SESSION['total_quantity'] = array();
         foreach ($_SESSION as $name => $value) {
            
             if(substr($name, 0, 8) == "product_"){
                 array_push($_SESSION['items'], substr($name, 8));
+                array_push($_SESSION['total_quantity'], $value);
             } 
 
         }
