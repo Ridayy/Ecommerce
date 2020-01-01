@@ -39,7 +39,7 @@
                                 <small>-<?php echo $product['discount']; ?>% </small>
                             <?php endif; ?>
                             <br><br>
-                            <a href="#" class="cat-btn">Add To Cart</a>
+                            <a href="<?php echo base_url().'cart/add/'.$product['id'] ?>" class="cat-btn">Add To Cart</a>
                             <a href="#" class="cat-btn">Buy Now</a>
                          </div>
                      </div>

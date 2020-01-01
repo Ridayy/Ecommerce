@@ -15,11 +15,15 @@ class Cart extends CI_Controller {
        if($row['quantity'] != $_SESSION['product_'. $id]){
 
         $_SESSION['product_'. $id] += 1;
-        // $this->product->reduce_quantity($id, $row['quantity']--);
-        $this->session->set_flashdata('success', "Added to cart!");
+        if($_SESSION['product_'. $id] == 1){
+            $this->session->set_flashdata('checkout_msg', "Added to cart!");
+        }else {
+            $this->session->set_flashdata('checkout_msg', "quantity increased");
+        }
+        
 
        }else {
-        $this->session->set_flashdata('failure', "We have only ".$row['quantity']." products available");
+        $this->session->set_flashdata('checkout_msg', "Sorry, We have only ".$row['quantity']." products available");
        }
        $this->cart_items();
        $_SESSION['products'] = $this->product->get_cart_products($_SESSION['items']);
@@ -34,7 +38,7 @@ class Cart extends CI_Controller {
             if($_SESSION['product_'. $id] == 0){
                 $this->delete($id);
             }else {
-                $this->session->set_flashdata('success', "1 item removed");
+                $this->session->set_flashdata('checkout_msg', "quantity reduced");
             }
             
         }
@@ -45,7 +49,7 @@ class Cart extends CI_Controller {
       
         if(isset($_SESSION['product_'. $id])){
             unset($_SESSION['product_'. $id]);
-            $this->session->set_flashdata('success', "Product Removed");
+            $this->session->set_flashdata('checkout_msg', "Product Removed");
             $this->cart_items();
             $_SESSION['products'] = $this->product->get_cart_products($_SESSION['items']);
         }

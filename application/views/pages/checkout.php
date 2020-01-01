@@ -4,14 +4,16 @@
 <section class="py-3 mt-4 checkout_section">
     <div class="container">
        
-        <?php if($this->session->flashdata('success')){
-            echo '<div class="alert alert-success">'.$this->session->flashdata('success').'</div>';
-        }  
+        <?php if($this->session->flashdata('checkout_msg')){
+            $value = $this->session->flashdata('checkout_msg');
+            echo "<script>
+                    $(document).ready(function(){
+                        bootbox.alert('$value');
+                    });
+                 </script>";
+        } 
         ?>
-        <?php if($this->session->flashdata('failure')){
-             echo '<div class="alert alert-danger">'.$this->session->flashdata('failure').'</div>';
-        }  
-        ?>
+        
        
         <div class="row">
             <div class="col-md-8 mr-4">
@@ -28,12 +30,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                   <?php foreach($_SESSION['products'] as $product): ?>
+                  <?php if(isset($_SESSION['products']) && !empty($_SESSION['products'])){
+                           $total = 0;
+                           foreach($_SESSION['products'] as $product){  
+                            $product['product_price'] = $product['product_price'] - ($product['product_price']*$product['discount']/100);
+                            $subtotal = $_SESSION['product_'.$product['id']]*$product['product_price'];
+                            $total+= $subtotal;
+                        ?>
                         <tr>
                             <th scope="row"><?php echo $product['product_description']; ?></th>
                             <td>Rs. <?php echo $product['product_price']; ?></td>
-                            <td>3</td>
-                            <td>2</td>
+                            <td><?php echo $_SESSION['product_'.$product['id']]; ?></td>
+                            <td><?php echo $subtotal ; ?></td>
                             <td>
                                 <a href="<?php echo base_url().'cart/add/'.$product['id']; ?>">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
@@ -46,7 +54,17 @@
                                 </a>
                             </td>
                         </tr>
-                   <?php endforeach; ?>
+                    <?php 
+                        } 
+                    }
+
+                        else { ?>
+                        <tr>
+                            <td colspan="5">
+                                <span class="text-center d-block"><small>Cart empty at the moment</small></span>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
           </table>
             </div>
@@ -57,15 +75,15 @@
                 <tbody>
                     <tr>
                         <th scope="row">Items: </th>
-                        <td>4</td>
+                        <td><?php echo (isset($_SESSION['products']) && !empty($_SESSION['products'])) ? count($_SESSION['products']) : 0 ?> </td>
                     </tr>
                     <tr>
                         <th scope="row">Shipping and Handling</th>
-                        <td>Rs. 2300</td>
+                        <td>Free Shipping</td>
                     </tr>
                     <tr>
                         <th scope="row">Order Total</th>
-                        <td>Rs. 4000</td>
+                        <td><?php echo isset($total) ? 'Rs. '.$total : 0; ?></td>
                     </tr>
                 </tbody>
                  </table>
@@ -73,7 +91,7 @@
         </div>
     </div>
     <br>
-    <center><a href="<?php echo base_url().'/pages/shop'; ?>" class="cat-btn m-3 px-4">Shop Now</a></center>
+    <center><a href="<?php echo base_url().'pages/shop'; ?>" class="cat-btn m-3 px-4">Shop Now</a></center>
     <br><br>
   </section>
 

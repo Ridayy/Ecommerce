@@ -77,7 +77,7 @@
         </div>
       </div>
     </div>
-    <center><a href="<?php echo base_url().'/pages/shop'; ?>" class="cat-btn m-3 px-4">Shop Now</a></center>
+    <center><a href="<?php echo base_url().'pages/shop'; ?>" class="cat-btn m-3 px-4">Shop Now</a></center>
   </section>
 
 <?php require APPPATH.'views/inc/main-footer.php' ; ?>

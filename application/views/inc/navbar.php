@@ -15,11 +15,20 @@
         </ul>
 
         <ul>
-            <li><a href="#">Search</a></li>
             <?php if(!isset($_SESSION['user_id'])): ?>
                 <li><a href="<?php echo base_url(); ?>auth/login">Sign In</a></li>
                 <li><a href="<?php echo base_url(); ?>auth/register">Sign Up</a></li>
+                <li><a href="#">Search</a></li>
             <?php else: ?>
+                <li id="cart">
+                    <a href="<?php echo base_url(); ?>pages/checkout">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>
+                        <?php echo (isset($_SESSION['products']) && !empty($_SESSION['products'])) ? count($_SESSION['products']) : '0' ?>
+                        </span>
+                    </a>
+                </li>
+                <li><a href="#">Search</a></li>
                 <li><a href="<?php echo base_url(); ?>auth/logout">Logout</a></li>
             <?php endif; ?>
            
