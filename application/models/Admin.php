@@ -5,5 +5,5 @@ class Admin extends CI_Model {
     return $this->db->get_where('admins', array('email' => $email, 'password' => $password))->row_array();
   }
 }
-
+ 
 ?>

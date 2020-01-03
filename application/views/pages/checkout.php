@@ -67,10 +67,13 @@
                     <?php } ?>
                 </tbody>
           </table>
-            </div>
+          <?php if(isset($_SESSION['products']) && !empty($_SESSION['products'])) : ?>
+            <a href="<?php echo base_url().'pages/payment'; ?>" class="cat-btn my-3 px-4">Buy Now</a>
+         <?php endif; ?>
+        </div>
             <div class="col-md-3">
-            <h3>Cart Totals</h3>
-            <div class="bottom-line"></div>
+              <h3>Cart Totals</h3>
+              <div class="bottom-line"></div>
               <table class="table mt-3 border">
                 <tbody>
                     <tr>
@@ -87,6 +90,8 @@
                     </tr>
                 </tbody>
                  </table>
+               
+ 
             </div>
         </div>
     </div>

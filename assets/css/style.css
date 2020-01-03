@@ -52,6 +52,15 @@
   .text-primary {
     color: #93cb52 !important;
   }
+
+  .text-dark-primary {
+    color: #66b907;
+  }
+  
+  .bg-primary {
+    background: #93cb52 !important;
+    color: #fff;
+  }
   
   .bg-light {
     background: #f4f4f4 !important;
@@ -63,10 +72,7 @@
     color: #fff !important;
   }
   
-  .bg-primary {
-    background: #93cb52 !important;
-    color: #fff;
-  }
+ 
   
   .l-heading {
     font-size: 4rem;
@@ -448,13 +454,27 @@
 }
 
 
-.contact_area h5 {
+.contact_area h5, .payment_section h5{
   font-weight: bold;
   color: #93cb52;
 }
 
+.payment_msg {
+  font-size: 17px;
+  font-weight: 600;
+  color: #66b907;
+}
+
+.payment_section, .review_section {
+  font-size: 14px;
+}
+
 .contact_area textarea {
   height: 76px !important;
+}
+
+.details_area p{
+  font-weight: 600;
 }
 
 #cart {

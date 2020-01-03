@@ -5,6 +5,13 @@ class Cart extends CI_Controller {
         parent::__construct();
         $this->load->model('product');
     }
+    /**
+     * add - Adds product to cart via its id
+     *
+     * @param  mixed $id
+     *
+     * @return void
+     */
     public function add($id){
        $row = $this->product->get_product($id);
     
@@ -18,7 +25,7 @@ class Cart extends CI_Controller {
         if($_SESSION['product_'. $id] == 1){
             $this->session->set_flashdata('checkout_msg', "Added to cart!");
         }else {
-            $this->session->set_flashdata('checkout_msg', "quantity increased");
+            $this->session->set_flashdata('checkout_msg', "Quantity increased");
         }
         
 
@@ -39,7 +46,7 @@ class Cart extends CI_Controller {
                 $this->delete($id);
             }else {
                 $this->cart_items();
-                $this->session->set_flashdata('checkout_msg', "quantity reduced");
+                $this->session->set_flashdata('checkout_msg', "Quantity reduced");
             }
             
         }
@@ -58,18 +65,22 @@ class Cart extends CI_Controller {
      }
 
     private function cart_items(){
-        $_SESSION['items'] = array();
+        $_SESSION['items'] = array(); //ids
         $_SESSION['total_quantity'] = array();
+        $orders = array();
+
         foreach ($_SESSION as $name => $value) {
            
             if(substr($name, 0, 8) == "product_"){
                 array_push($_SESSION['items'], substr($name, 8));
+                $orders[substr($name, 8)] = $value;
                 array_push($_SESSION['total_quantity'], $value);
             } 
-
         }
+        $_SESSION['orders_json'] = json_encode($orders, JSON_FORCE_OBJECT);
     }
- 
+
+    
 }
 
 ?>

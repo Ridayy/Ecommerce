@@ -13,6 +13,11 @@
             return $row['id'];
         }
 
+        public function get_name($id){
+            $row = $this->db->get_where('users', array('id'=> $id))->row_array();
+            return $row['name'];
+        }
+
         public function check_email($email){
             $this->db->where('email', $email);
             $this->db->from('users');

@@ -66,6 +66,46 @@ class Pages extends CI_Controller{
         }
     }
 
+    public function payment(){
+        if(!isset($_SESSION['user_id']) && !isset($_SESSION['products'])){
+            redirect(base_url().'pages/shop');
+        }else {
+           
+            $this->form_validation->set_rules('phone', 'Mobile Number ', 'required|regex_match[/^[0-9]{11}$/]');
+            $this->form_validation->set_rules("address", "Shipping Address", "trim|required");
+            $this->form_validation->set_rules("city", "City", "trim|required|alpha");
+            $this->form_validation->set_rules("state", "State", "trim|required|alpha");
+            
+            
+
+
+            if($this->form_validation->run() == FALSE){
+                $this->load->view('pages/payment');
+            }
+            else {
+                // form validated successfully
+                $customer = array();
+
+                $customer['city'] = $_POST['city'];
+                $customer['state'] = $_POST['state'];
+                $customer['phone'] = $_POST['phone'];
+                $customer['address'] = $_POST['address'];
+                
+                $_SESSION['details_taken'] = true;
+
+                $this->load->view('pages/review', $customer);
+            }
+        }
+    }
+
+    public function confirm(){
+        $this->load->view('pages/confirm');
+    }
+
+    public function thankyou(){
+        $this->load->view('pages/thankyou');
+    }
+
     public function destroy(){
         session_destroy();
     }

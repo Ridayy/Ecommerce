@@ -38,6 +38,26 @@ class Admins extends CI_Controller {
         }  
     }
 
+    public function products(){
+        if(!isset( $_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+            $this->load->model('product');
+            $data = [
+                'products' => $this->product->get_products()
+            ];
+            $this->load->view('admins/manage_products', $data);
+        }  
+    }
+
+    public function categories(){
+        if(!isset( $_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+            $this->load->view('admins/categories');
+        }  
+    }
+
     public function logout(){
         unset($_SESSION['admin']);
         redirect(base_url());

@@ -16,7 +16,11 @@ class Auth extends CI_Controller {
                 $this->session->set_flashdata('failure', 'Invalid Credentials');
                 redirect(base_url().'auth/login');
             }else {
+
                 $_SESSION['user_id'] = $this->user->get_userid($_POST['email']);
+                $_SESSION['user_name'] = $this->user->get_name($_SESSION['user_id']);
+                $_SESSION['user_email'] = $_POST['email'];
+
                 redirect(base_url().'pages/shop');
             }
         }else {

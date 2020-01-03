@@ -4,7 +4,7 @@
           <i class="fas fa-mountain"></i>The</span>Mountain
         </h1>
         <ul>
-            <li><a href="<?php echo base_url(); ?>" class="sel">Home</a></li>
+            <li><a href="<?php echo base_url(); ?>">Home</a></li>
             <li><a href="<?php echo base_url(); ?>pages/shop">Shop</a></li>
             <li><a href="<?php echo base_url(); ?>pages/contact">Contact</a></li>
             <li><a href="<?php echo base_url(); ?>pages/new">New</a></li>

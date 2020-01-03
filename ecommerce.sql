@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2019 at 08:11 PM
+-- Generation Time: Jan 03, 2020 at 07:38 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -67,6 +67,36 @@ INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_class`, `uploaded_at`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `state` varchar(20) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `product_summary` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`product_summary`)),
+  `amount` float NOT NULL,
+  `status` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `user_id`, `city`, `state`, `phone`, `address`, `product_summary`, `amount`, `status`) VALUES
+(9, 1, 'Hyderabad', 'Sindh', '03233046737', 'Memon Society', '{\"2\":1}', 780, 'confirmed'),
+(10, 1, 'Hyderabad', 'Sindh', '03233046737', 'Memon Society', '{\"1\":1}', 900, 'confirmed'),
+(11, 1, 'Hyderabad', 'Sindh', '03233046737', 'Memon Society, Near Wahdat Colony', '{\"3\":1}', 504, 'confirmed'),
+(12, 1, 'Hyderabad', 'Sindh', '03233046737', 'Memon Society', '{\"2\":1}', 780, 'confirmed'),
+(13, 1, 'Hyderabad', 'Sindh', '03233046737', 'Abc', '{\"1\":1}', 900, 'confirmed'),
+(14, 1, 'Hyderabad', 'Sindh', '03233046737', 'Abc', '{\"3\":1}', 504, 'confirmed');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -87,8 +117,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_description`, `product_cat`, `product_price`, `product_image`, `brand`, `discount`, `quantity`, `created_at`) VALUES
-(1, 'Double Button Cardigan', 3, 900, 'assets/img/products/dress.jpg', 'Khaadi', 0, 4, '2019-12-30 12:04:03'),
-(2, 'Makeup Mystery Box', 1, 780, 'assets/img/products/makeup.jpg', 'Rivaj', 0, 3, '2019-12-30 12:04:03'),
+(1, 'Double Button Cardigan', 3, 900, 'assets/img/products/dress.jpg', 'Khaadi', 0, 2, '2019-12-30 12:04:03'),
+(2, 'Makeup Mystery Box', 1, 780, 'assets/img/products/makeup.jpg', 'Rivaj', 0, 2, '2019-12-30 12:04:03'),
 (3, 'STUNNING BLACK & SILKY', 1, 560, 'assets/img/products/shampoo.jpg', 'Sunsilk', 10, 2, '2019-12-30 12:06:23'),
 (4, 'Doll Evening Dress', 3, 2789, 'assets/img/products/dress2.jpg', 'Black', 20, 1, '2019-12-30 12:29:14'),
 (5, 'Check Shirt', 4, 1399, 'assets/img/products/shirt1.jpg', 'Black & Blue', 30, 2, '2019-12-30 12:29:14'),
@@ -106,7 +136,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` int(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -115,7 +145,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `created_at`) VALUES
-(1, 'Rida', 'ridaarif20@gmail.com', 0, '2019-12-30 09:48:24');
+(1, 'Rida', 'ridaarif20@gmail.com', 'e1bdf3e39b509f41e818c7436fc8798e', '2019-12-30 09:48:24'),
+(2, 'Muskan', 'muskan@gmail.com', 'e1bdf3e39b509f41e818c7436fc8798e', '2020-01-02 19:21:49');
 
 --
 -- Indexes for dumped tables
@@ -132,6 +163,12 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `products`
@@ -162,6 +199,12 @@ ALTER TABLE `categories`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -171,7 +214,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
