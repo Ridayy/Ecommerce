@@ -76,11 +76,79 @@ class Orders extends CI_Controller {
         return $success;
     }
 
+ 
+
+    public function get_pending(){
+        if(!isset($_SESSION['admin'])){
+            redirect(base_url());
+        }
+        $data = array();
+        $data['orders'] = $this->order->get_pending();
+        $this->load->view('admins/pending', $data);
+    }
+
+    public function get_confirmed(){
+        if(!isset($_SESSION['admin'])){
+            redirect(base_url());
+        }
+        $data = array();
+        $data['orders'] = $this->order->get_confirmed();
+        $this->load->view('admins/confirmed', $data);
+    }
+
+    public function set_completed($id){
+        if(!isset($_SESSION['admin'])){
+            redirect(base_url());
+        }
+       
+        if($this->order->set_completed($id)){
+            $this->session->set_flashdata('success', "Successfully Completed");
+        }else {
+            $this->session->set_flashdata('failure', "Operation was not successful");
+        }
+        redirect(base_url(). 'orders/get_confirmed');
+    }
+
+    public function get_completed(){
+        if(!isset($_SESSION['admin'])){
+            redirect(base_url());
+        }
+        $data = array();
+        $data['orders'] = $this->order->get_completed();
+        $this->load->view('admins/completed', $data);
+    }
+
+    public function delete($id){
+        if(!isset($_SESSION['admin'])){
+            redirect(base_url());
+        }
+        if($this->order->delete_order($id)){
+            $this->session->set_flashdata('success', "Order Deleted Successfully");
+        }else {
+            $this->session->set_flashdata('failure', "Delete Operation was not successul");
+        }
+
+        if(isset($_GET['page'])){
+            redirect(base_url(). 'orders/get_'.$_GET['page']);
+        }else {
+            redirect(base_url(). 'orders/get_pending');
+        }
+        
+        
+    }
+
+
+
     public function confirm($id){
       $this->order->confirm($id);
+      $this->load->model('user');
+    
+      // get user id from order id bcs user might not be logged in
+      $this->user->add_order($this->order->get_user($id));
+
       $this->session->set_flashdata('order_id', $id);
       $_SESSION['thankyou'] = true;
-      redirect(base_url(). '/pages/thankyou');
+      redirect(base_url(). 'pages/thankyou');
     }
 
     private function remove_all(){

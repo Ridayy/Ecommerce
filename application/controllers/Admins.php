@@ -38,6 +38,21 @@ class Admins extends CI_Controller {
         }  
     }
 
+    public function users(){
+        if(!isset( $_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+            $this->load->model('user');
+            
+
+            $data = [
+                'users' =>  $this->user->get_users()
+            ];
+
+            $this->load->view('admins/users', $data);
+        }  
+    }
+
     public function products(){
         if(!isset( $_SESSION['admin'])){
             redirect(base_url());
@@ -46,7 +61,7 @@ class Admins extends CI_Controller {
             $data = [
                 'products' => $this->product->get_products()
             ];
-            $this->load->view('admins/manage_products', $data);
+            $this->load->view('admins/products', $data);
         }  
     }
 
@@ -54,7 +69,11 @@ class Admins extends CI_Controller {
         if(!isset( $_SESSION['admin'])){
             redirect(base_url());
         }else {
-            $this->load->view('admins/categories');
+            $this->load->model('category');
+            $data = [
+                'categories' => $this->category->get_categories()
+            ];
+            $this->load->view('admins/categories', $data);
         }  
     }
 

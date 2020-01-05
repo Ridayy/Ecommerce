@@ -31,6 +31,20 @@
         public function check_user($email, $password){
             return $this->db->get_where('users', array('email'=> $email, 'password' => $password))->row_array();
         }
+
+        public function add_order($id){
+            $this->db->set('num_orders', 'num_orders + 1', FALSE);
+            $this->db->where('id', $id);   
+            $this->db->update('users');
+        }
+
+        public function delete_user($id){
+            $this->db->where('id', $id);
+            $this->db->delete('users');
+            if ($this->db->affected_rows() == '1')
+                return true;
+            return false; 
+        }
     }
 
 ?>

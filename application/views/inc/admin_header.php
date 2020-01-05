@@ -18,7 +18,10 @@
   <link href="<?php echo base_url(); ?>assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
+
   <link href="<?php echo base_url(); ?>assets/css/sb-admin.css" rel="stylesheet">
+
+  <script src="<?php echo base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
 
  
 </head>
@@ -73,35 +76,38 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url().'admins/products'; ?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Manage Products</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url().'admins/categories'; ?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Categories</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Orders</span></a>
+  
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="ordersdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Orders</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="ordersdropdown">
+          <a class="dropdown-item font-weight-bold" href="<?php echo base_url(). 'orders/get_pending'; ?>">Pending</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item font-weight-bold" href="<?php echo base_url(). 'orders/get_confirmed'; ?>">Confirmed</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item font-weight-bold" href="<?php echo base_url(). 'orders/get_completed'; ?>">Completed</a>
+        </div>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo base_url(). 'admins/users'; ?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Users</span></a>
       </li>
 
-
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
     </ul>
 
     <div id="content-wrapper">
