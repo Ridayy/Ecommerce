@@ -4,6 +4,11 @@
             $this->db->insert('users', $user);
         }
 
+        public function total_users(){
+            $query = $this->db->get('users');
+            return count($query->result());
+        }
+
         public function get_users(){
             return $this->db->get('users')->result_array();
         }

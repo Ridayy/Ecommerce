@@ -9,7 +9,20 @@ class Admins extends CI_Controller {
     public function index(){
 
         if(isset( $_SESSION['admin'])){
-            $this->load->view('admins/dashboard');
+            $this->load->model('order');
+            $this->load->model('product');
+            $this->load->model('user');
+            $this->load->model('category');
+
+            $data = [
+                'total_orders' => count($this->order->total_orders()),
+                'total_products' => $this->product->total_products(),
+                'total_users' => $this->user->total_users(),
+                'total_categories' => $this->category->total_categories(),
+                'orders' =>  $this->order->get_all()
+            ];
+
+            $this->load->view('admins/dashboard', $data);
         }else {
             $this->form_validation->set_rules("email", "Email", "trim|required");
             $this->form_validation->set_rules('password', 'Password', 'required');
@@ -34,7 +47,19 @@ class Admins extends CI_Controller {
         if(!isset( $_SESSION['admin'])){
             redirect(base_url());
         }else {
-            $this->load->view('admins/dashboard');
+            $this->load->model('order');
+            $this->load->model('product');
+            $this->load->model('user');
+            $this->load->model('category');
+
+            $data = [
+                'total_orders' => count($this->order->total_orders()),
+                'total_products' => $this->product->total_products(),
+                'total_users' => $this->user->total_users(),
+                'total_categories' => $this->category->total_categories(),
+                'orders' =>  $this->order->get_all()
+            ];
+            $this->load->view('admins/dashboard', $data);
         }  
     }
 

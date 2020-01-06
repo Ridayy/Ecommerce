@@ -4,6 +4,11 @@
             $this->db->insert('products', $product);
         }
 
+        public function total_products(){
+            $query = $this->db->get('products');
+            return count($query->result());
+        }
+
         public function get_product($id){
             $this->db->select('*');
             $this->db->from('products as p');

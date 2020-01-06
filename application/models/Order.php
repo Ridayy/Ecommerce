@@ -7,11 +7,24 @@
             return  $insert_id;
         }
 
+        public function total_orders(){
+            $query = $this->db->get('orders');
+            return $query->result();
+        }
+
 
         public function confirm($id){
             $this->db->set('status', 'confirmed');
             $this->db->where('order_id', $id);   
             $this->db->update('orders');
+        }
+
+        public function get_all(){
+            $this->db->select('*');
+            $this->db->from('orders as o');
+            $this->db->join('users as u', 'o.user_id = u.id');
+            $this->db->order_by('order_id', 'desc');
+            return $this->db->get()->result_array();
         }
 
         public function get_pending(){

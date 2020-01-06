@@ -4,6 +4,11 @@
             $this->db->insert('categories', $category);
         }
 
+        public function total_categories(){
+            $query = $this->db->get('categories');
+            return count($query->result());
+        }
+
         public function get_category_by_id($id){
             return $this->db->get_where('categories', array('cat_id'=>$id))->row_array();
         }

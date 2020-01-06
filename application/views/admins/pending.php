@@ -56,7 +56,7 @@
                         </td>
                         <td class="font-weight-bold"><?= $order['email']; ?></td>
                         <td><?= $order['phone']; ?></td>
-                        <td><?= $order['amount']; ?></td>
+                        <td>Rs. <?= $order['amount']; ?></td>
                         <td><?= $order['status']; ?></td>
                         <td><?= $order['city']; ?></td>
                         <td><?= $order['state']; ?></td>
