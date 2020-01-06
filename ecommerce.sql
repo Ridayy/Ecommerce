@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2020 at 07:41 PM
+-- Generation Time: Jan 06, 2020 at 03:46 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -62,7 +62,7 @@ INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_class`, `uploaded_at`) VALU
 (1, 'Health & beauty', 'health_and_beauty', '2019-12-30 11:05:21'),
 (2, 'Watches, Bag & Jewellery', 'watches_bag_jewellery', '2019-12-30 11:05:21'),
 (3, 'Women\'s fashion', 'womens_fashion', '2019-12-30 11:51:20'),
-(4, 'Men\'s fashion', 'mens_fashion', '2020-01-05 14:49:09');
+(4, 'Men\'s fashionss', 'mens_fashionss', '2020-01-05 14:49:09');
 
 -- --------------------------------------------------------
 
@@ -90,9 +90,9 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`order_id`, `user_id`, `city`, `state`, `phone`, `address`, `product_summary`, `amount`, `status`, `ordered_at`) VALUES
 (10, 1, 'Hyderabad', 'Sindh', '03233046737', 'Memon Society', '{\"1\":1}', 900, 'pending', '2019-12-30 11:05:21'),
 (13, 1, 'Hyderabad', 'Sindh', '03233046737', 'Abc', '{\"1\":1}', 900, 'completed', '2020-01-05 19:51:14'),
-(15, 1, 'Hyderabad', 'Sindh', '03233046737', 'abc', '{\"8\":1,\"4\":1}', 3041.2, 'confirmed', '2020-01-05 23:36:06'),
 (16, 1, 'Hyderabad', 'Sindh', '03233046737', 'Street 2, Memon Society', '{\"7\":1}', 6300, 'confirmed', '2020-01-05 23:37:58'),
-(17, 1, 'Hyderabad', 'Sindh', '03233046737', 'bhjj', '{\"9\":1,\"4\":1}', 2995.6, 'confirmed', '2020-01-05 23:39:39');
+(17, 1, 'Hyderabad', 'Sindh', '03233046737', 'bhjj', '{\"9\":1,\"4\":1}', 2995.6, 'confirmed', '2020-01-05 23:39:39'),
+(18, 1, 'Hyderabad', 'Sindh', '03233046737', 'Abc', '{\"3\":1,\"4\":3}', 7197.6, 'confirmed', '2020-01-06 08:30:38');
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `num_orders`, `created_at`) VALUES
-(1, 'Rida', 'ridaarif20@gmail.com', 'e1bdf3e39b509f41e818c7436fc8798e', 5, '2019-12-30 09:48:24'),
+(1, 'Rida', 'ridaarif20@gmail.com', 'e1bdf3e39b509f41e818c7436fc8798e', 6, '2019-12-30 09:48:24'),
 (2, 'Muskan', 'muskan@gmail.com', 'e1bdf3e39b509f41e818c7436fc8798e', 0, '2020-01-02 19:21:49');
 
 --
@@ -204,7 +204,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `products`
