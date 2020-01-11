@@ -69,8 +69,14 @@ class Pages extends CI_Controller{
            
             $this->load->model('order');
             $result = $this->order->get_order_by_id($_POST['order_id']);
+
+            if($result == ''){
+                $data['status'] = 'none';
+            }else {
+                $data['status'] = $result['status'];
+            }
             
-            $data['status'] = $result['status'];
+           
             $this->load->view('pages/track', $data);
         }
         

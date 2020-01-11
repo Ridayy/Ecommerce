@@ -27,7 +27,7 @@
               <img src="<?= base_url().'assets/img/loading.gif'; ?>" alt="Loading.." style="width:50px;height:50px">
            </center>
       </div>   
-      <?php if(isset($status)): ?>
+      <?php if($status != "none"): ?>
         <ol class="progress-tracker">
             <?php if($status == 'pending'):?>
                 <li class="step active"><a href="#" class="step-name">Placed</a></li>
@@ -48,6 +48,8 @@
             <?php endif; ?>
            
         </ol>
+      <?php else: ?>
+        <p class="text-center result"><strong>No results available. <span>&#9785;</span></strong></p>
       <?php endif; ?>
     </div>
     <br>
@@ -59,6 +61,7 @@
         $('#track_btn').click(function () {
             $("#loading").removeClass('d-none');
             $(".progress-tracker").hide();
+            $(".result").hide();
           setTimeout(function() {
             $("#loading").addClass('d-none');
             $('#track_form').submit();
