@@ -1,5 +1,8 @@
 $(document).ready(function(){
     console.log('loaded');
+
+    
+
 });
 
 function readURL(input){
@@ -14,4 +17,5 @@ function readURL(input){
         reader.readAsDataURL(input.files[0]);
     }
 }
+
 

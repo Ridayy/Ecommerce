@@ -32,7 +32,7 @@ class Admins extends CI_Controller {
                     $this->session->set_flashdata('failure', 'Invalid Credentials');
                     redirect(base_url().'admins/index');
                 }else {
-                    $_SESSION['admin'] = true;
+                    $_SESSION['admin'] = $_POST['email'];
                     redirect(base_url().'admins/dashboard');
                 }
             }else {
@@ -41,6 +41,31 @@ class Admins extends CI_Controller {
         }
 
         
+    }
+
+    public function change(){
+        $this->form_validation->set_rules('new_email', 'New Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules("old_password", "Old Password", "trim|required|callback_check_password");
+        $this->form_validation->set_rules('new_password', 'New Password', 'trim|required');
+
+
+        if($this->form_validation->run() == TRUE){
+           $this->admin->update_admin($_SESSION['admin'], $_POST['new_email'], $_POST['new_password']);
+           $_SESSION['admin'] = $_POST['new_email'];
+        }else {
+            echo json_encode($this->form_validation->error_array());
+        }
+    }
+
+   
+    public function check_password($password){
+        if($this->admin->check_password($_SESSION['admin'], $password) != ''){
+            return true;
+        }
+        else {
+            $this->form_validation->set_message('check_password', 'Invalid Old Password');
+            return false;
+        }
     }
 
     public function dashboard() {
