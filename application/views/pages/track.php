@@ -27,7 +27,7 @@
               <img src="<?= base_url().'assets/img/loading.gif'; ?>" alt="Loading.." style="width:50px;height:50px">
            </center>
       </div>   
-      <?php if($status != "none"): ?>
+      <?php if(isset($status) && $status != "none"): ?>
         <ol class="progress-tracker">
             <?php if($status == 'pending'):?>
                 <li class="step active"><a href="#" class="step-name">Placed</a></li>
@@ -48,7 +48,7 @@
             <?php endif; ?>
            
         </ol>
-      <?php else: ?>
+      <?php elseif(isset($status) && $status == "none"): ?>
         <p class="text-center result"><strong>No results available. <span>&#9785;</span></strong></p>
       <?php endif; ?>
     </div>
