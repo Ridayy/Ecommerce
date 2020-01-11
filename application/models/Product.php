@@ -25,6 +25,14 @@
  
         }
 
+        public function get_new(){
+            $this->db->select('*');
+            $this->db->from('products as p');
+            $this->db->join('categories as c', 'p.product_cat = c.cat_id AND quantity != 0 AND created_at >= DATE_SUB(NOW(),INTERVAL 2 day)');
+
+           return $this->db->get()->result_array();
+        }
+
 
         public function get_recent_products(){
             $this->db->select('*');

@@ -27,6 +27,15 @@ class Pages extends CI_Controller{
         $this->load->view('pages/shop', $data);
     }
 
+    public function new(){
+        $data = [
+            'categories' => $this->category->get_categories(),
+            'products' => $this->product->get_new()
+        ];
+        
+        $this->load->view('pages/new', $data);
+    }
+
     public function contact(){
         
         $this->form_validation->set_rules("name", "Name", "trim|required|alpha|max_length[30]|min_length[3]");

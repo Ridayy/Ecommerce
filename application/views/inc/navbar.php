@@ -7,7 +7,7 @@
             <li><a href="<?php echo base_url(); ?>">Home</a></li>
             <li><a href="<?php echo base_url(); ?>pages/shop">Shop</a></li>
             <li><a href="<?php echo base_url(); ?>pages/contact">Contact</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/new">New</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/new">What's New</a></li>
             <li><a href="<?php echo base_url(); ?>pages/faqs">FAQS</a></li>
             <?php if(isset($_SESSION['user_id'])): ?>
                 <li><a href="<?php echo base_url(); ?>pages/checkout">Checkout</a></li>
