@@ -59,6 +59,23 @@ class Pages extends CI_Controller{
         }
     }
 
+    public function track(){
+        $this->form_validation->set_rules("order_id", "Order ID", "trim|required|numeric");
+        if($this->form_validation->run() == FALSE){
+           
+            $this->load->view('pages/track');
+        }else {
+            $data = array();
+           
+            $this->load->model('order');
+            $result = $this->order->get_order_by_id($_POST['order_id']);
+            
+            $data['status'] = $result['status'];
+            $this->load->view('pages/track', $data);
+        }
+        
+    }
+
     public function checkout(){
         if(!isset($_SESSION['user_id'])){
             redirect(base_url().'pages/shop');

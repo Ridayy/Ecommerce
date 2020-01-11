@@ -29,6 +29,7 @@
                     </a>
                 </li>
                 <li><a href="#">Search</a></li>
+                <li><a href="<?php echo base_url(); ?>pages/track">Track Order</a></li>
                 <li><a href="<?php echo base_url(); ?>auth/logout">Logout</a></li>
             <?php endif; ?>
            

@@ -12,6 +12,11 @@
             return $query->result();
         }
 
+        public function get_order_by_id($id){
+            return $this->db->get_where('orders', array('order_id' =>  $id))->row_array();
+            // return $this->db->get_where('faqs', array('id'=>$id))->row_array();
+        }
+
 
         public function confirm($id){
             $this->db->set('status', 'confirmed');
