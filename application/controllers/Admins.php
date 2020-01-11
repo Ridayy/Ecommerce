@@ -102,6 +102,18 @@ class Admins extends CI_Controller {
         }  
     }
 
+    public function faqs(){
+        if(!isset( $_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+            $this->load->model('faq');
+            $data = [
+                'questions' => $this->faq->get_questions()
+            ];
+            $this->load->view('admins/faqs', $data);
+        }  
+    }
+
     public function logout(){
         unset($_SESSION['admin']);
         redirect(base_url());

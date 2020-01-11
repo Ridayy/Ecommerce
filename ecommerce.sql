@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 03:46 PM
+-- Generation Time: Jan 11, 2020 at 07:48 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -63,6 +63,30 @@ INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_class`, `uploaded_at`) VALU
 (2, 'Watches, Bag & Jewellery', 'watches_bag_jewellery', '2019-12-30 11:05:21'),
 (3, 'Women\'s fashion', 'womens_fashion', '2019-12-30 11:51:20'),
 (4, 'Men\'s fashionss', 'mens_fashionss', '2020-01-05 14:49:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `answer` text NOT NULL,
+  `posted_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `title`, `answer`, `posted_at`) VALUES
+(1, 'What are my shipping options?', 'Cash on delivery only', '2020-01-11 09:54:30'),
+(2, 'When will my order ship?', 'Lorem ipsum dolor sit amet.', '2020-01-11 09:54:30'),
+(3, 'How do I track my order?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', '2020-01-11 09:54:30'),
+(4, 'What is your exchange and return policy?', 'Lorem ipsum dolor ', '2020-01-11 09:54:30'),
+(8, 'How do I cancel or change my order?', 'Email us as soon as possible. We\'ll see what we can do', '2020-01-11 11:43:57');
 
 -- --------------------------------------------------------
 
@@ -167,6 +191,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
 
 --
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -199,6 +229,12 @@ ALTER TABLE `admins`
 --
 ALTER TABLE `categories`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`

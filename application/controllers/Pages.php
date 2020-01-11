@@ -6,6 +6,7 @@ class Pages extends CI_Controller{
         parent::__construct();
         $this->load->model('category');
         $this->load->model('product');
+        $this->load->model('faq');
     }
 
     public function index(){
@@ -96,6 +97,14 @@ class Pages extends CI_Controller{
                 $this->load->view('pages/review', $customer);
             }
         }
+    }
+
+    public function faqs(){
+        $data = array();
+
+        $data['questions'] = $this->faq->get_questions();
+
+        $this->load->view('pages/faqs', $data);
     }
 
     public function confirm(){

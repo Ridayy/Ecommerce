@@ -108,6 +108,12 @@
           <span>Users</span></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(). 'admins/faqs'; ?>">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Faqs</span></a>
+      </li>
+
     </ul>
 
     <div id="content-wrapper">
