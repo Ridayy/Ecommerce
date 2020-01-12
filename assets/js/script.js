@@ -9,11 +9,18 @@ $(window).on("load", function() {
 
 
 
+
 $(document).ready(function() {
 
-	// $('.view_button').click(function(e){
-	// 	e.stopPropagation();
-	// });
+	$("#search_text_input").focus(function(){
+		$(this).animate({
+			width:'220px'
+		}, 400);
+	});
+
+	$("#search_button").click(function(){
+		console.log('submitted');
+	});
 	  
 
 	$("[data-fancybox]").fancybox();
@@ -102,6 +109,39 @@ $(document).ready(function() {
 
 
 });
+
+$(document).click(function(e){
+	if(e.target.class != "search_results" && e.target.id != 'search_text_input'){
+		$(".search_results").html('');
+
+		
+		$("#search_text_input").animate({
+			width:'180px'
+		}, 400);
+		
+	}
+});
+
+
+
+function getLiveSearchProducts(value, baseurl){
+	if(value == ''){
+		$(".search_results").html('');
+	}else {
+		$.post(baseurl + "pages/search", {query:value}, function(data){
+		
+		
+			$(".search_results").html(data);
+			$(".search_results").append("<div class='results_status'><a href=" + baseurl + "pages/search?q= " + value + ">See All Results</a></div>");
+	
+			if(data == ''){
+				$(".search_results").html('');
+				$(".search_results").append("<div class='no_results'>No results found</div>");
+			}
+		});
+	}
+	
+}
 
 
 

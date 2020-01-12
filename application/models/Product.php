@@ -9,6 +9,20 @@
             return count($query->result());
         }
 
+        public function get_search_results($keywords){
+           
+            $searchTermKeywords = array();
+            foreach ($keywords as $word) 
+            {
+            
+            $searchTermKeywords[] = "product_description LIKE '%$word%'";
+            
+            }
+
+            $result=  $this->db->query("SELECT * FROM products WHERE ".implode(' OR ', $searchTermKeywords)." LIMIT 5" )->result_array();
+            return $result;
+        }
+
         public function get_product($id){
             $this->db->select('*');
             $this->db->from('products as p');

@@ -3,22 +3,27 @@
         <span class="text-primary">
           <i class="fas fa-mountain"></i>The</span>Mountain
         </h1>
-        <ul>
-            <li><a href="<?php echo base_url(); ?>">Home</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/shop">Shop</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/contact">Contact</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/new">What's New</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/faqs">FAQS</a></li>
-            <?php if(isset($_SESSION['user_id'])): ?>
-                <li><a href="<?php echo base_url(); ?>pages/checkout">Checkout</a></li>
-            <?php endif; ?>
+        <ul id="main_menu">
+            <li><a href="<?php echo base_url(); ?>"><i class="fas fa-home"></i> &nbsp;Home</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/shop"><i class="fas fa-shopping-basket"></i> &nbsp;Shop</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/contact"><i class="fas fa-envelope-open"></i> &nbsp;Contact</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/new"><i class="fas fa-user"></i> &nbsp;What's New</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/faqs"><i class="fas fa-question"></i> &nbsp;FAQS</a></li>
+           
         </ul>
 
-        <ul>
+        <ul> 
+            <li id="search_bar">
+                <form action="#" method="GET">
+                <input type="text" name="q" id="search_text_input" placeholder="Search for products..." onkeyup="getLiveSearchProducts(this.value, '<?php echo base_url(); ?>')" autocomplete="off">
+                <button type="button" id="search_button"><i class="fas fa-search"></i></button>
+                </form>
+                <div class="search_results"></div>
+               
+            </li>
             <?php if(!isset($_SESSION['user_id'])): ?>
-                <li><a href="<?php echo base_url(); ?>auth/login">Sign In</a></li>
-                <li><a href="<?php echo base_url(); ?>auth/register">Sign Up</a></li>
-                <li><a href="#">Search</a></li>
+                <li><a href="<?php echo base_url(); ?>auth/login"><i class="fas fa-user"></i> &nbsp; Join Us</a></li>
+               
             <?php else: ?>
                 <li id="cart">
                     <a href="<?php echo base_url(); ?>pages/checkout">
@@ -28,10 +33,27 @@
                         </span>
                     </a>
                 </li>
-                <li><a href="#">Search</a></li>
-                <li><a href="<?php echo base_url(); ?>pages/track">Track Order</a></li>
-                <li><a href="<?php echo base_url(); ?>auth/logout">Logout</a></li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle ml-2" href="#" id="navbardrop" data-toggle="dropdown">
+                    My Account
+                </a>
+                <div class="dropdown-menu">
+                    <a class=" dropdown-item" href="<?php echo base_url(); ?>pages/checkout"><i class="fas fa-credit-card"></i> &nbsp;Checkout</a>
+                    <a class=" dropdown-item" href="<?php echo base_url(); ?>pages/profile"><i class="fas fa-id-badge"></i> &nbsp;&nbsp;&nbsp;My Profile </a>
+                    <a  class=" dropdown-item" href="<?php echo base_url(); ?>pages/track"><i class="fas fa-truck"></i> &nbsp;Track Order</a>
+                    
+                    <a class=" dropdown-item" href="<?php echo base_url(); ?>auth/logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a>
+                </div>
+                </li>
             <?php endif; ?>
            
         </ul>
 </nav>
+
+<!-- <div id="search_bar">
+
+    <center>
+       
+    </center>
+           
+</div> -->

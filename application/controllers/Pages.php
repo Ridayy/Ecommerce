@@ -36,6 +36,41 @@ class Pages extends CI_Controller{
         $this->load->view('pages/new', $data);
     }
 
+    public function search(){
+        if(isset($_POST['query'])){
+            $keywords = explode(" ", $_POST['query']);
+            $search_results = $this->product->get_search_results($keywords);
+
+            $search_div = "";
+
+            foreach($search_results as $result){
+                $url = base_url(). 'products/show/'.$result['id'];
+                $product_image = base_url(). $result['product_image'];
+                $desc = $result['product_description'];
+                $search_div .= "<div class='results_display'>
+                                 <a href='$url'>
+                                    <div class='product_image'>
+                                        <img src='$product_image' />
+                                    </div>
+                                    <div class='live_search_text'>
+                                        $desc
+                                    </div>
+                                 </a>
+                               </div>";
+            }
+
+            echo $search_div."";
+
+        }
+
+        if(isset($_GET['q'])){
+            $this->product->get_search_results(array("Makeup", "box"));
+            echo 'Yes';
+        }
+
+
+    }
+
     public function contact(){
         
         $this->form_validation->set_rules("name", "Name", "trim|required|alpha|max_length[30]|min_length[3]");

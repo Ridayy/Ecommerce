@@ -5,6 +5,8 @@ $(document).ready(function(){
 		pagination: false
 	});
 
+	console.log('Loaded');
+
 	var typed = new Typed(".typed", {
 		strings: ["Shop Now", "Avail Offers", "We Value Our Customers"],
 		typeSpeed: 70,

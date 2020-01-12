@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2020 at 06:57 PM
+-- Generation Time: Jan 12, 2020 at 05:39 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -147,9 +147,9 @@ INSERT INTO `products` (`id`, `product_description`, `product_cat`, `product_pri
 (5, 'Check Shirt', 4, 1399, 'assets/img/products/shirt1.jpg', 'Black & Blue', 30, 2, '', '2019-12-30 12:29:14'),
 (6, 'Cut Price Casual Shirt', 4, 1000, 'assets/img/products/shirt2.jpg', 'Outfitters', 10, 3, '', '2019-12-30 12:29:14'),
 (7, 'Business Bag', 2, 7000, 'assets/img/products/bag1.jpg', 'Outfitters', 10, 2, '', '2019-12-30 12:33:06'),
-(8, 'Golden Stainless Alphabet Locket ', 2, 900, 'assets/img/products/chain.jpg', 'teens', 10, 2, '', '2019-12-30 12:34:55'),
+(8, 'Golden Stainless Alphabet Locket ', 2, 900, 'assets/img/products/chain.jpg', 'teens', 10, 2, '', '2020-01-11 09:54:30'),
 (9, 'Double Button Cardigan', 3, 780, 'assets/img/products/5e10de77993be5e104b625677cimg2.jpg', 'Khaadi', 2, 4, 'One of the best products available with over 5000 customers', '2020-01-04 20:37:10'),
-(13, 'Makeup Mystery Box', 1, 890, 'assets/img/products/5e10de51747a0makeup.jpg', 'Rivaj', 8, 6, 'abc', '2020-01-04 23:49:53');
+(13, 'Makeup Mystery Box', 1, 890, 'assets/img/products/5e10de51747a0makeup.jpg', 'Rivaj', 8, 6, 'abc', '2020-01-11 11:43:57');
 
 -- --------------------------------------------------------
 
