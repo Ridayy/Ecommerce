@@ -130,9 +130,10 @@ function getLiveSearchProducts(value, baseurl){
 	}else {
 		$.post(baseurl + "pages/search", {query:value}, function(data){
 		
+			console.log(value);
 		
 			$(".search_results").html(data);
-			$(".search_results").append("<div class='results_status'><a href=" + baseurl + "pages/search?q= " + value + ">See All Results</a></div>");
+			$(".search_results").append("<div class='results_status'><a href=" + baseurl + "pages/search?q=" + value + ">See All Results</a></div>");
 	
 			if(data == ''){
 				$(".search_results").html('');
@@ -142,6 +143,7 @@ function getLiveSearchProducts(value, baseurl){
 	}
 	
 }
+
 
 
 

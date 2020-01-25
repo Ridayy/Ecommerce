@@ -19,6 +19,11 @@ class Users extends CI_Controller {
         }
     }
 
+    public function show(){
+        $user_id = $_SESSION['user_id'];
+        $this->load->view('pages/profile');
+    }
+
     public function add_order($user_id){
         $this->user->add_order($user_id);
     }

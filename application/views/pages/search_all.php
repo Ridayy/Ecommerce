@@ -1,67 +1,8 @@
 <?php require APPPATH.'views/inc/header.php' ; ?>
 <?php require APPPATH.'views/inc/navbar.php' ; ?>
 
-
-    <div id="myCarousel" class="carousel slide new_carousel mb-5" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item carousel-image-1 active" style="background-image: url('<?= base_url(); ?>assets/img/arrival1.jpeg');">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block text-right mb-5">
-              <h1 class="display-3">Heading One</h1>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                quod aliquid inventore vero perspiciatis.</p>
-              <a href="#" class="btn btn-danger btn-lg">Sign Up Now</a>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="carousel-item carousel-image-2" style="background-image: url('<?= base_url(); ?>assets/img/arrival2.jpeg');">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block mb-5">
-              <h1 class="display-3">Heading Two</h1>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                quod aliquid inventore vero perspiciatis.</p>
-              <a href="#" class="btn btn-primary btn-lg">Learn More</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item carousel-image-3" style="background-image: url('<?= base_url(); ?>assets/img/arrival3.jpeg');">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block text-right mb-5">
-              <h1 class="display-3">Heading Three</h1>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                quod aliquid inventore vero perspiciatis.</p>
-              <a href="#" class="btn btn-success btn-lg">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-
-      <a href="#myCarousel" data-slide="next" class="carousel-control-next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
-    </div>
-
-<section class="m-4 new_arrival"> 
-    <div class="info text-center">
-        <h3>Enjoy the latest arrivals</h3>
-        <div class="bottom-line"></div><br><br>
-    </div>
-
-<div class="container">
-    <?php if(!empty($products)): ?>
+<section class="m-4">
+   <div class="container">
       <div class="filter">
          <center>
             <ul id="filters">
@@ -90,7 +31,7 @@
 
      
         <div class="items mt-4">
-              <?php foreach ($products as $product): ?>
+              <?php foreach ($search_results as $product): ?>
                     <!--  -->
                     <div class="item <?php echo $product['cat_class']; ?>" data-category="<?php echo $product['cat_class']; ?>">
                        <div onclick=window.location.href='<?php echo base_url().'products/show/'.$product['id']; ?>'>
@@ -117,7 +58,7 @@
                             <a href="<?php echo base_url().'cart/add/'.$product['id'] ?>" target="_blank" class="cart_button">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
-					      	</div>
+						</div>
                         <div class="d-none">
                             <p class="price"><?php echo $product['product_price']; ?></p>
                             <p class="date"><?php echo $product['created_at']; ?></p>
@@ -128,18 +69,13 @@
                     </div>
                 <?php endforeach; ?>
          </div>
-      <?php else: ?>
-        <p class="text-center result"><strong>No results available. <span>&#9785;</span></strong></p>
-      <?php endif; ?>
+         <center>
+				<a href="<?php echo base_url().'pages/shop'; ?>" class="cat-btn">View More</a>
+		</center>
     </div>
      
    </div>
 </section>
-
-<center>
-    <a href="<?php echo base_url().'pages/shop'; ?>" class="cat-btn">Shop Now</a>
-</center>
-<br><br>
 
 <?php require APPPATH.'views/inc/main-footer.php' ; ?>
 <?php require APPPATH.'views/inc/footer.php' ; ?>

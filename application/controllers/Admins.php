@@ -139,6 +139,18 @@ class Admins extends CI_Controller {
         }  
     }
 
+    public function reviews(){
+        if(!isset( $_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+            $this->load->model('review');
+            $data = [
+                'reviews' => $this->review->get_all()
+            ];
+            $this->load->view('admins/reviews', $data);
+        }  
+    }
+
     public function logout(){
         unset($_SESSION['admin']);
         redirect(base_url());

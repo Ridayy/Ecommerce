@@ -5,10 +5,19 @@ class Products extends CI_Controller {
         parent::__construct();
         $this->load->model('product');
         $this->load->model('category');
+        $this->load->model('review');
     }
     public function show($id){
         $data = [
-            'product' => $this->product->get_product($id)
+            'product' => $this->product->get_product($id),
+            'reviews' => $this->review->get_reviews($id),
+            'average_rating' => $this->review->calc_avg_rating($id),
+            'num_reviews' => $this->review->num_reviews($id),
+            'five_stars' => $this->review->calc_five_stars($id),
+            'four_stars' => $this->review->calc_four_stars($id),
+            'three_stars' => $this->review->calc_three_stars($id),
+            'two_stars' => $this->review->calc_two_stars($id),
+            'one_stars' => $this->review->calc_one_stars($id)
         ];
         $this->load->view('products/show', $data);
     }

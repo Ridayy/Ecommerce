@@ -790,6 +790,84 @@
  
   background-size: cover;
 }
+
+.user_reviews {
+  color: #838080;
+}
+
+.user_reviews h5 {
+  color: #838080;
+  
+}
+
+.user_reviews > div {
+  width: 33%;
+}
+
+.user_reviews > div:last-child {
+  text-align: right;
+}
+
+
+.user_reviews .card:first-child > div {
+  background: rgb(235, 235, 235);
+  font-size: 20px;
+  font-weight: 600;
+  color: #66B959;
+}
+.review_num {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.rate_post button{
+  width: 210px;
+  padding: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.submit_ratings p{
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.submit_ratings .star_button{
+  padding: 10px;
+  border: none !important;
+  background: rgb(235, 235, 235);
+  border-radius: 50%;
+}
+
+.submit_ratings .star_button:focus {
+  outline: none;
+}
+
+.user_desc .user_profile img{
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+.user_desc .user_details .name {
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.check_icon {
+  background: #66B959;
+  color: white;
+  display: inline-block;
+  padding: 3px;
+  font-size: 14px;
+  line-height: 17px;
+  border-radius: 50%;
+}
+
+.review_calc {
+  color: #66b907;
+}
   
   #main-footer a {
     color: #fff;

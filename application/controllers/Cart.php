@@ -38,6 +38,30 @@ class Cart extends CI_Controller {
        redirect(base_url(). 'pages/checkout');
     }
 
+    public function buy($id){
+        $row = $this->product->get_product($id);
+    
+        if(!isset($_SESSION['product_'. $id])){
+             $_SESSION['product_'. $id] = 0;
+        }
+ 
+        if($row['quantity'] != $_SESSION['product_'. $id]){
+ 
+            $_SESSION['product_'. $id] += 1;
+            
+            $this->cart_items();
+
+            $_SESSION['products'] = $this->product->get_cart_products($_SESSION['items']);
+
+            redirect(base_url(). 'pages/payment');
+        }else {
+            $this->session->set_flashdata('buy_fail', "Sorry, We have only ".$row['quantity']." products available");
+        }
+
+        redirect(base_url(). 'products/show/'. $row['id']);
+
+    }
+
     public function remove($id){
       
         if(isset($_SESSION['product_'. $id]) && $_SESSION['product_'. $id] != 0){

@@ -63,9 +63,15 @@ class Pages extends CI_Controller{
 
         }
 
+
         if(isset($_GET['q'])){
-            $this->product->get_search_results(array("Makeup", "box"));
-            echo 'Yes';
+            $keywords = explode(" ", $_GET['q']);
+            $search_results = $this->product->search_all($keywords);
+            $data = [
+                'categories' => $this->category->get_categories(),
+                'search_results' => $search_results
+            ];
+            $this->load->view('pages/search_all', $data);
         }
 
 

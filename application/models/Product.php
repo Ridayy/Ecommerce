@@ -23,6 +23,22 @@
             return $result;
         }
 
+
+        public function search_all($keywords){
+           
+            $searchTermKeywords = array();
+            foreach ($keywords as $word) 
+            {
+            
+            $searchTermKeywords[] = "product_description LIKE '%$word%'";
+            
+            }
+
+            $result=  $this->db->query("SELECT * FROM products JOIN categories
+            ON product_cat = cat_id  WHERE ".implode(' OR ', $searchTermKeywords))->result_array();
+            return $result;
+        }
+
         public function get_product($id){
             $this->db->select('*');
             $this->db->from('products as p');
