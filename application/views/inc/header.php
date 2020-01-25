@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+  <script src="<?= base_url().'assets/js/jquery.jcrop.js'; ?>"></script>
+  <script src="<?= base_url().'assets/js/jcrop_bits.js'; ?>"></script>
+	<link rel="stylesheet" href="<?= base_url().'assets/css/jquery.Jcrop.css'; ?>" type="text/css" />
+	
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
   <title>The Mountain</title>
 </head>

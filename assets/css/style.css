@@ -613,7 +613,7 @@
   top:-12px;
 }
 
-.checkout_section h3, .faqs_section h3, .new_arrival h3 {
+.checkout_section h3, .faqs_section h3, .new_arrival h3, #user_dashboard h3, #formExample h3 {
   font-weight: bold;
   text-align: center;
 }
@@ -868,6 +868,100 @@
 .review_calc {
   color: #66b907;
 }
+
+#user_dashboard {
+  width: 80%;
+  margin: 50px auto;
+}
+
+#user_options {
+  width: 25%;
+  border:2px solid #93cb52;
+  height:250px;
+}
+
+#user_dashboard ul {
+ 
+  list-style: none !important;
+}
+
+#user_dashboard ul li {
+  padding: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+#user_dashboard ul li:hover {
+  background:#93cb52;
+}
+
+#user_dashboard ul li:hover a{
+  color:#fff;
+}
+
+#user_dashboard li.active {
+  background:#93cb52;
+ 
+}
+
+#user_dashboard img {
+  width: 170px;
+  height: 170px;
+  border: 5px solid #ccc;
+}
+
+#user_dashboard li.active  a {
+  color: #fff;
+}
+
+#user_dashboard #desc {
+  width: 70%;
+}
+
+#user_dashboard ul li a {
+  display: block;
+  color: #000;
+}
+
+#user_dashboard h4 {
+  color: #66b907;
+  font-weight: 600;
+}
+
+.order_items .card {
+  width: 23%;
+  margin: 1%;
+  background: #ebffd2;
+  text-align: center;
+  border-color: #ebffd2 !important;
+}
+
+.order_items .card .value {
+  color: #000;
+}
+
+#user_orders {
+ 
+  padding: 10px;
+  height: 400px;
+  overflow: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   #main-footer a {
     color: #fff;

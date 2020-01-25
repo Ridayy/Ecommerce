@@ -17,6 +17,9 @@
             // return $this->db->get_where('faqs', array('id'=>$id))->row_array();
         }
 
+        public function get_user_orders($id){
+            return $this->db->order_by('order_id', 'desc')->get_where('orders', array('user_id' =>  $id))->result_array();
+        }
 
         public function confirm($id){
             $this->db->set('status', 'confirmed');

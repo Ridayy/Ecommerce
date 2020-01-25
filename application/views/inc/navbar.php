@@ -39,7 +39,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class=" dropdown-item" href="<?php echo base_url(); ?>pages/checkout"><i class="fas fa-credit-card"></i> &nbsp;Checkout</a>
-                    <a class=" dropdown-item" href="<?php echo base_url(); ?>pages/profile"><i class="fas fa-id-badge"></i> &nbsp;&nbsp;&nbsp;My Profile </a>
+                    <a class=" dropdown-item" href="<?php echo base_url(); ?>users/show"><i class="fas fa-id-badge"></i> &nbsp;&nbsp;&nbsp;My Profile </a>
                     <a  class=" dropdown-item" href="<?php echo base_url(); ?>pages/track"><i class="fas fa-truck"></i> &nbsp;Track Order</a>
                     
                     <a class=" dropdown-item" href="<?php echo base_url(); ?>auth/logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a>
