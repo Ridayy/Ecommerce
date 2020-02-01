@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2020 at 04:08 PM
+-- Generation Time: Feb 01, 2020 at 09:48 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -177,6 +177,36 @@ INSERT INTO `reviews` (`review_id`, `review_text`, `rating`, `user_id`, `product
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `slides`
+--
+
+CREATE TABLE `slides` (
+  `id` int(11) NOT NULL,
+  `slide_title` varchar(50) NOT NULL,
+  `slide_img` text NOT NULL,
+  `location` varchar(10) NOT NULL,
+  `mandatory` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `slides`
+--
+
+INSERT INTO `slides` (`id`, `slide_title`, `slide_img`, `location`, `mandatory`) VALUES
+(5, 'Shop Now', 'assets/img/slide1.jpeg', 'home', 1),
+(6, 'Avail Offers', 'assets/img/slide2.jpeg', 'home', 1),
+(7, 'We Value Our Customers', 'assets/img/slide3.jpeg', 'home', 1),
+(8, '35% OFF Sitewide including NEW ARRIVALS!!', 'assets/img/arrival1.jpeg', 'shop', 1),
+(9, 'Just in! New arrivals for August', 'assets/img/arrival2.jpeg', 'shop', 1),
+(10, 'Kick back with these new arrivals', 'assets/img/arrival3.jpeg', 'shop', 1),
+(13, 'Get Amazing Discount Offers', 'assets/img/products/5e352270a39dcimage1.jpeg', 'home', 0),
+(14, 'Always On Top', 'assets/img/products/5e35230754f8aimage4.jpeg', '', 0),
+(15, 'Get Amazing Discount Offers', 'assets/img/products/5e35251b244c8image3.jpeg', '', 0),
+(17, 'Hello World', 'assets/img/products/5e353aaa26897image2.jpg', 'home', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -195,7 +225,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `profile_pic`, `password`, `num_orders`, `created_at`) VALUES
-(1, 'Rida Arif', 'ridaarif20@gmail.com', 'assets/img/profile_pics/12ba8934ead97e9303071564f336f0c95n.jpeg', 'e1bdf3e39b509f41e818c7436fc8798e', 6, '2019-12-30 09:48:24'),
+(1, 'Rida Arif', 'ridaarif20@gmail.com', 'assets/img/profile_pics/1a21a3ec093d81d02dd45abafd839201dn.jpeg', 'e1bdf3e39b509f41e818c7436fc8798e', 6, '2019-12-30 09:48:24'),
 (2, 'Muskan', 'muskan@gmail.com', 'assets/img/profile_pic/defaults/image_3.png', 'e1bdf3e39b509f41e818c7436fc8798e', 0, '2020-01-02 19:21:49');
 
 --
@@ -237,6 +267,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`review_id`);
+
+--
+-- Indexes for table `slides`
+--
+ALTER TABLE `slides`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -283,6 +319,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `reviews`
   MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `slides`
+--
+ALTER TABLE `slides`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
