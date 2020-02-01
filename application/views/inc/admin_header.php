@@ -38,14 +38,8 @@
 
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
+     
+     
     </form>
 
     <!-- Navbar -->
@@ -67,7 +61,7 @@
   </nav>
 
   <div id="wrapper">
-
+ 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
@@ -79,20 +73,20 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url().'admins/products'; ?>">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-tshirt"></i>
           <span>Manage Products</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url().'admins/categories'; ?>">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-list"></i>
           <span>Categories</span></a>
       </li>
 
   
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="ordersdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-shopping-cart"></i>
           <span>Orders</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="ordersdropdown">
@@ -106,13 +100,13 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(). 'admins/users'; ?>">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-users"></i>
           <span>Users</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(). 'admins/faqs'; ?>">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-question"></i>
           <span>Faqs</span></a>
       </li>
 
@@ -120,6 +114,12 @@
         <a class="nav-link" href="<?php echo base_url(). 'admins/reviews'; ?>">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Reviews</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(). 'admins/slides'; ?>">
+          <i class="fas fa-square"></i>
+          <span>Slides</span></a>
       </li>
 
     </ul>

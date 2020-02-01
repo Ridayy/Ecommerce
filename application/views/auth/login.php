@@ -1,9 +1,9 @@
 <?php require APPPATH . 'views/inc/header.php'; ?>
 <?php require APPPATH . 'views/inc/navbar.php'; ?>
-
+  <br>
   <div class="row">
     <div class="col-md-4 mx-auto">
-      <div class="card card-body bg-light mt-3">
+      <div class="card card-body bg-light my-4">
         <?php if($this->session->flashdata('success')){
                 echo '<div class="alert alert-success">'.$this->session->flashdata('success').'</div>';
             }  
@@ -38,5 +38,6 @@
     </div>
   </div>
 
-  
-  <?php require APPPATH . 'views/inc/footer.php'; ?>
+  <br><br>
+  <?php require APPPATH . 'views/inc/main-footer.php'; ?>
+  <?php require APPPATH.'views/inc/footer.php' ; ?>

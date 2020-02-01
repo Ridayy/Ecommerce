@@ -127,7 +127,7 @@ class Admins extends CI_Controller {
         }  
     }
 
-    public function faqs(){
+    public function faqs(){ 
         if(!isset( $_SESSION['admin'])){
             redirect(base_url());
         }else {
@@ -151,9 +151,179 @@ class Admins extends CI_Controller {
         }  
     }
 
+    public function slides(){
+        if(!isset( $_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+            $this->load->model('slide');
+            $data = [
+                'slides' => $this->slide->get_slides()
+            ];
+            $this->load->view('admins/slides', $data);
+        }  
+    }
+
+    public function remove($id){
+        $this->load->model('slide');
+        if(!isset($_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+           if($this->slide->delete_slide($id)) {
+                $this->session->set_flashdata('success', 'Slide deleted successfully');
+           }else {
+            $this->session->set_flashdata('failure', 'Delete operation was not successful');
+           }
+        }
+
+        redirect(base_url(). 'admins/slides');
+    }
+
+    public function edit_title() {
+        $this->load->model('slide');
+        $this->form_validation->set_rules("edit_title", "Slide Title", "trim|required");
+        $this->form_validation->set_rules("slide_id", "Slide ID", "required");
+
+        if($this->form_validation->run() == TRUE){
+            $this->slide->edit($_POST['slide_id'], $_POST['edit_title']);
+            $this->session->set_flashdata('success', 'Slide updated successfully');
+        }else {
+         $this->session->set_flashdata('failure', 'Update operation was not successful');
+        }
+
+        redirect(base_url().'admins/slides');
+        
+    }
+
+
+    public function get_slide($id){
+        $this->load->model('slide');
+        echo json_encode($this->slide->get_slide_by_id($id));
+    }
+
+    public function remove_from_page($id){
+        $this->load->model('slide');
+        if(!isset($_SESSION['admin'])){
+            redirect(base_url());
+        }else {
+           if($this->slide->remove_slide($id)) {
+                $this->session->set_flashdata('success', 'Slide removed from the page');
+           }else {
+            $this->session->set_flashdata('failure', 'Delete operation was not successful');
+           }
+        }
+
+        redirect(base_url(). 'admins/slides');
+    }
+
+
+
     public function logout(){
         unset($_SESSION['admin']);
         redirect(base_url());
+    }
+
+    public function add_slide(){
+        $this->load->model('slide');
+        $this->form_validation->set_rules('file_to_upload', 'Slide Image', 'callback_image_upload');
+        $this->form_validation->set_rules('slide_title', 'Slide Title', 'trim|required');
+
+
+        if($this->form_validation->run() == TRUE){
+            //form validated successfully
+
+            $slide = array();
+
+            if(isset($_SESSION['image'])){
+                $slide['slide_img'] = $_SESSION['image'];
+                unset($_SESSION['image']);
+                $this->session->set_flashdata('success', 'Slide added successfully');
+                $slide['slide_title'] = $_POST['slide_title'];
+                $this->slide->add($slide);
+                echo '';
+            }
+        }else {
+            echo json_encode($this->form_validation->error_array());
+        }
+    }
+
+    public function add_to_home($id){
+        $this->load->model('slide');
+        if($this->slide->add_to_home($id)){
+            $this->session->set_flashdata('success', 'Slide added successfully to home page');
+        }else {
+            $this->session->set_flashdata('failure', 'Add operation was not successful');
+        }
+        redirect(base_url().'admins/slides');
+    }
+
+    public function add_to_shop($id){
+        $this->load->model('slide');
+        if($this->slide->add_to_shop($id)){
+            $this->session->set_flashdata('success', 'Slide added successfully to shop page');
+        }else {
+            $this->session->set_flashdata('failure', 'Add operation was not successful');
+        }
+        redirect(base_url().'admins/slides');
+    }
+
+
+    public function image_upload($input){
+        $upload_ok = true;
+        $error_message = "";
+
+        if(isset($_FILES['file_to_upload'])){
+
+            if(empty($_FILES['file_to_upload']['name'])){
+                $upload_ok = false;
+                $error_message = "Slide image is required";
+                $this->form_validation->set_message("image_upload", $error_message);
+                return $upload_ok;
+            }
+
+
+            $image_name = $_FILES['file_to_upload']['name'];
+            
+            if($image_name != ""){
+                $root =  dirname(dirname(dirname(__FILE__)));
+                $target_dir = $root."/";
+                $image = "assets/img/products/".uniqid().basename($image_name);
+                $image_path = $target_dir.$image;
+                
+                $image_file_type = pathinfo($image_name, PATHINFO_EXTENSION);
+
+                if($_FILES['file_to_upload']['size'] > 1000000){
+                    $error_message = "Sorry, image is too large";
+                    $upload_ok = false;
+                }
+
+                if(strtolower($image_file_type) != "jpeg" && strtolower($image_file_type) != "png" && strtolower($image_file_type) != "jpg"){
+                    $error_message = "Sorry, image is too large";
+                    $upload_ok = false;
+                }
+
+                if($upload_ok){
+                    if(move_uploaded_file($_FILES['file_to_upload']['tmp_name'], $image_path)){
+        
+                    }else {
+                        $error_message = "Sorry, image was not uploaded due to some reason";
+                        $upload_ok = false;
+                    }
+                }
+
+                if($upload_ok){
+                    $_SESSION['image'] = $image;
+                }else {
+                    $this->form_validation->set_message("file_to_upload", $error_message);
+                }
+
+                return $upload_ok;
+            }   
+       }else {
+            $this->form_validation->set_message("image_upload", "Parameter not set");
+            return false;
+       }
+
+      
     }
 }
 

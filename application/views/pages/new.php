@@ -4,45 +4,53 @@
 
     <div id="myCarousel" class="carousel slide new_carousel mb-5" data-ride="carousel">
       <ol class="carousel-indicators">
+       <?php if(!empty($slides)): ?>
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <?php for($i = 1;$i< $num_slides; $i++): ?>
+        <li data-target="#myCarousel" data-slide-to="<?= $i;?>"></li>
+        <?php endfor; ?>
+       <?php else: ?>
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+       <?php endif; ?>
       </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item carousel-image-1 active" style="background-image: url('<?= base_url(); ?>assets/img/arrival1.jpeg');">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block text-right mb-5">
-              <h1 class="display-3">Heading One</h1>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                quod aliquid inventore vero perspiciatis.</p>
-              <a href="#" class="btn btn-danger btn-lg">Sign Up Now</a>
+      <div class="carousel-inner slider_text">
+        <?php if(isset($slides) && !empty($slides)): ?>
+          <?php $i = 1; ?>
+            <?php foreach($slides as $slide): ?>
+             <?php if($i == 1): ?>
+              <div class="carousel-item carousel-image-<?= $i; ?> active" style="background-image: url('<?= base_url().$slide['slide_img'] ?>');">
+              <div class="container">
+                <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                  <h1 class="display-3" style="text-shadow:2px 2px #000;">
+                    Enjoy The Latest Arrivals
+                  </h1>
+                  <p class="lead" style="text-shadow:2px 2px #000">
+                    <?= $slide['slide_title']; ?>
+                  </p>
+                  <a href="#" class="btn btn-success btn-lg">Learn More</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-
-
-        <div class="carousel-item carousel-image-2" style="background-image: url('<?= base_url(); ?>assets/img/arrival2.jpeg');">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block mb-5">
-              <h1 class="display-3">Heading Two</h1>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                quod aliquid inventore vero perspiciatis.</p>
-              <a href="#" class="btn btn-primary btn-lg">Learn More</a>
+             <?php else: ?>
+              <div class="carousel-item carousel-image-<?= $i; ?>" style="background-image: url('<?= base_url().$slide['slide_img'] ?>');">
+              <div class="container">
+                <div class="carousel-caption d-none d-sm-block text-right mb-5">
+                  <h1 class="display-3" style="text-shadow:2px 2px #000">
+                    Your Satisfaction , Our Success
+                  </h1>
+                  <p class="lead" style="text-shadow:2px 2px #000">
+                    <?= $slide['slide_title']; ?>
+                  </p>
+                  <a href="#" class="btn btn-success btn-lg">Learn More</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="carousel-item carousel-image-3" style="background-image: url('<?= base_url(); ?>assets/img/arrival3.jpeg');">
-          <div class="container">
-            <div class="carousel-caption d-none d-sm-block text-right mb-5">
-              <h1 class="display-3">Heading Three</h1>
-              <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, aperiam vel ullam deleniti reiciendis ratione
-                quod aliquid inventore vero perspiciatis.</p>
-              <a href="#" class="btn btn-success btn-lg">Learn More</a>
-            </div>
-          </div>
-        </div>
+             <?php endif; ?>
+            <?php $i++; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
       </div>
 
       <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">

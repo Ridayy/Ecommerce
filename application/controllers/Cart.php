@@ -34,8 +34,12 @@ class Cart extends CI_Controller {
        }
        $this->cart_items();
        $_SESSION['products'] = $this->product->get_cart_products($_SESSION['items']);
+       if(isset($_SESSION['user_id'])){
+            redirect(base_url(). 'pages/checkout');
+       }else {
+        redirect(base_url(). 'auth/login');
+       }
        
-       redirect(base_url(). 'pages/checkout');
     }
 
     public function buy($id){

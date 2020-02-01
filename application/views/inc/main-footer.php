@@ -31,7 +31,7 @@
       <div>
         <h4> <span class="text-primary">CREATE</span> ACCOUNT</h4>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, nesciunt!</p>
-        <a href="#" class="btn btn-secondary">Join Now</a>
+        <a href="<?= base_url().'auth/login'; ?>" class="btn btn-secondary">Join Now</a>
       </div>
       <div>
         <p>

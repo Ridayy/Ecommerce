@@ -7,13 +7,27 @@ class Pages extends CI_Controller{
         $this->load->model('category');
         $this->load->model('product');
         $this->load->model('faq');
+        $this->load->model('slide');
     }
 
     public function index(){
         $data = [
             'categories' => $this->category->get_categories(),
-            'products' => $this->product->get_recent_products()
+            'products' => $this->product->get_recent_products(),
+            'slides' => $this->slide->get_home_slides(),
         ];
+
+
+        $titles = array();
+
+        $values =  $this->slide->get_home_titles();
+
+        foreach($values as $value){
+            array_push($titles, $value['slide_title']);
+        }
+
+       $data['titles'] =  implode(",", $titles);
+        
 
         $this->load->view('pages/home', $data);
     }
@@ -21,7 +35,8 @@ class Pages extends CI_Controller{
     public function shop(){
         $data = [
             'categories' => $this->category->get_categories(),
-            'products' => $this->product->get_products()
+            'products' => $this->product->get_products(),
+            
         ];
         
         $this->load->view('pages/shop', $data);
@@ -30,9 +45,11 @@ class Pages extends CI_Controller{
     public function new(){
         $data = [
             'categories' => $this->category->get_categories(),
-            'products' => $this->product->get_new()
+            'products' => $this->product->get_new(),
+            'slides' => $this->slide->get_shop_slides(),
+            'num_slides' => count($this->slide->get_shop_slides())
         ];
-        
+            
         $this->load->view('pages/new', $data);
     }
 

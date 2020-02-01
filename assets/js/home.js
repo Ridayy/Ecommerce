@@ -7,13 +7,7 @@ $(document).ready(function(){
 
 	console.log('Loaded');
 
-	var typed = new Typed(".typed", {
-		strings: ["Shop Now", "Avail Offers", "We Value Our Customers"],
-		typeSpeed: 70,
-		loop: true,
-		startDelay: 1000,
-		showCursor: false
-	});
+
 
 	const nav = $("#navigation");
 	const navTop = nav.offset().top;

@@ -35,7 +35,7 @@
                     <!--  -->
                     <div class="item <?php echo $product['cat_class']; ?>" data-category="<?php echo $product['cat_class']; ?>">
                        <div onclick=window.location.href='<?php echo base_url().'products/show/'.$product['id']; ?>'>
-                        <div class="item-image">
+                            <div class="item-image">
                                 <img src="<?php echo base_url().$product['product_image']; ?>" alt="">
                             </div>
                             <div class="item-description">
@@ -69,7 +69,7 @@
                     </div>
                 <?php endforeach; ?>
          </div>
-         </center>
+        
     </div>
      
    </div>

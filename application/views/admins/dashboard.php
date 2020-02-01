@@ -138,6 +138,6 @@
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
-      
-        <?php require APPPATH.'views/inc/admin_footer.php' ; ?>
+
+<?php require APPPATH.'views/inc/admin_footer.php' ; ?>
   

@@ -3,7 +3,7 @@
 
   <div class="row">
     <div class="col-md-4 mx-auto">
-      <div class="card card-body bg-light mt-3">
+      <div class="card card-body bg-light my-4">
         <h2>Create An Account</h2>
         <p>Please fill out this form to register with us</p>
         <form action="<?php echo base_url(); ?>auth/register" method="post">
@@ -41,4 +41,5 @@
     </div>
   </div>
 
-  <?php require APPPATH . 'views/inc/footer.php'; ?>
+<?php require APPPATH . 'views/inc/main-footer.php'; ?>
+<?php require APPPATH.'views/inc/footer.php' ; ?>
