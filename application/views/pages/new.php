@@ -29,7 +29,7 @@
                   <p class="lead" style="text-shadow:2px 2px #000">
                     <?= $slide['slide_title']; ?>
                   </p>
-                  <a href="#" class="btn btn-success btn-lg">Learn More</a>
+                  <a href="<?= base_url().'pages/shop'; ?>" class="btn btn-success btn-lg">View More</a>
                 </div>
               </div>
             </div>
@@ -43,7 +43,7 @@
                   <p class="lead" style="text-shadow:2px 2px #000">
                     <?= $slide['slide_title']; ?>
                   </p>
-                  <a href="#" class="btn btn-success btn-lg">Learn More</a>
+                  <a href="#" class="btn btn-success btn-lg">View More</a>
                 </div>
               </div>
             </div>
