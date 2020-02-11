@@ -4,11 +4,11 @@
           <i class="fas fa-mountain"></i>The</span>Mountain
         </h1>
         <ul id="main_menu">
-            <li><a href="<?php echo base_url(); ?>"><i class="fas fa-home"></i> &nbsp;Home</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/shop"><i class="fas fa-shopping-basket"></i> &nbsp;Shop</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/contact"><i class="fas fa-envelope-open"></i> &nbsp;Contact</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/new"><i class="fas fa-user"></i> &nbsp;What's New</a></li>
-            <li><a href="<?php echo base_url(); ?>pages/faqs"><i class="fas fa-question"></i> &nbsp;FAQS</a></li>
+            <li><a href="<?php echo base_url(); ?>" id="home"><i class="fas fa-home"></i> &nbsp;Home</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/shop" id="shop"><i class="fas fa-shopping-basket"></i> &nbsp;Shop</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/contact" id="contact"><i class="fas fa-envelope-open"></i> &nbsp;Contact</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/new" id="new"><i class="fas fa-user"></i> &nbsp;What's New</a></li>
+            <li><a href="<?php echo base_url(); ?>pages/faqs" id="faqs"><i class="fas fa-question"></i> &nbsp;FAQS</a></li>
            
         </ul>
 

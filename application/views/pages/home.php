@@ -105,8 +105,16 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <br>
+              
+              
+               
          </div>
-        
+         <br><br>
+         <center>
+              <button class="cat-btn" onclick="window.location.href='<?= base_url() ?>pages/shop'">View More</button>
+        </center>
+        <br>
     </div>
      
    </div>
@@ -118,6 +126,8 @@
     var typedWords = titles.split(",");
 
     $(document).ready(function(){
+
+    // $("#home").addClass('active');
     
     var typed = new Typed(".typed", {
         strings: typedWords,

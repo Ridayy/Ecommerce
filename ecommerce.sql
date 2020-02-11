@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2020 at 09:48 AM
+-- Generation Time: Feb 11, 2020 at 07:14 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.1.33
 
@@ -62,7 +62,8 @@ INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_class`, `uploaded_at`) VALU
 (1, 'Health & beauty', 'health_and_beauty', '2019-12-30 11:05:21'),
 (2, 'Watches, Bag & Jewellery', 'watches_bag_jewellery', '2019-12-30 11:05:21'),
 (3, 'Women\'s fashion', 'womens_fashion', '2019-12-30 11:51:20'),
-(4, 'Men\'s fashionss', 'mens_fashionss', '2020-01-05 14:49:09');
+(4, 'Men\'s fashionss', 'mens_fashionss', '2020-01-05 14:49:09'),
+(11, 'Baby Toys', 'baby_toys', '2020-02-11 11:18:55');
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,10 @@ INSERT INTO `products` (`id`, `product_description`, `product_cat`, `product_pri
 (7, 'Business Bag', 2, 7000, 'assets/img/products/bag1.jpg', 'Outfitters', 10, 2, 'At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles.', '2019-12-30 12:33:06'),
 (8, 'Golden Stainless Alphabet Locket ', 2, 900, 'assets/img/products/chain.jpg', 'teens', 10, 2, 'Meta komentofrazo ci cis, negativa antaŭmetado la oni, havi frida aga ac. Jeso senforte iam ci', '2020-01-11 09:54:30'),
 (9, 'Double Button Cardigan', 3, 780, 'assets/img/products/5e10de77993be5e104b625677cimg2.jpg', 'Khaadi', 2, 4, 'One of the best products available with over 5000 customers', '2020-01-04 20:37:10'),
-(13, 'Makeup Mystery Box', 1, 890, 'assets/img/products/5e10de51747a0makeup.jpg', 'Rivaj', 8, 6, 'abc', '2020-01-11 11:43:57');
+(13, 'Makeup Mystery Box', 1, 890, 'assets/img/products/5e10de51747a0makeup.jpg', 'Rivaj', 8, 6, 'abc', '2020-01-11 11:43:57'),
+(14, 'Stunt Rolling Car Radio and Remote Control 360', 11, 1570, 'assets/img/products/5e42478bb84b9toy1.jpg', 'Degree Electronic', 10, 5, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud', '2020-02-11 11:19:55'),
+(15, 'Remote Control 360', 11, 1500, 'assets/img/products/5e4247bc7acb7toy2.jpg', 'Walkies', 10, 5, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud', '2020-02-11 11:20:44'),
+(16, 'Mystery box', 11, 199, 'assets/img/products/5e42480910bd8toy3.jpg', 'Walkies', 10, 6, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud', '2020-02-11 11:22:01');
 
 -- --------------------------------------------------------
 
@@ -172,7 +176,8 @@ CREATE TABLE `reviews` (
 
 INSERT INTO `reviews` (`review_id`, `review_text`, `rating`, `user_id`, `product_id`, `review_posted_at`) VALUES
 (5, 'Best Product', 4, 1, 9, '2020-01-24 19:29:13'),
-(15, 'Best Experience', 5, 2, 9, '2020-01-24 23:47:32');
+(15, 'Best Experience', 5, 2, 9, '2020-01-24 23:47:32'),
+(17, 'Best', 2, 1, 4, '2020-02-11 11:33:08');
 
 -- --------------------------------------------------------
 
@@ -294,7 +299,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `faqs`
@@ -312,13 +317,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `slides`
